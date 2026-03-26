@@ -111,8 +111,8 @@ Supported for some targets (e.g. React). Steps belong in the **`Active target`**
 ### Per-client onboarding checklist
 
 - [ ] Figma URL + edit access
-- [ ] Add URL **to the README** (Figma file section)
-- [ ] Create `agents/_operations/client-quirks/{client-name}.md`
+- [ ] Add **`agents/_config/clients/{client-id}.json`** (`fileKey`, `fileUrl`, `figma.nodes`) — see [`agents/_config/README.md`](../agents/_config/README.md); duplicate URL in root README only if you want a human shortcut
+- [ ] Create `agents/_operations/client-quirks/{client-name}.md` (optional prose)
 - [ ] First sync; review PR and proposed rules
 - [ ] Code Connect when stable; Chromatic project; npm package name if publishing
 

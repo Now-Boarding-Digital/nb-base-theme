@@ -44,3 +44,5 @@ The **`figma-sync`** agent reads this file at the start of a run and appends **d
 **What failed and why:** Could not run `npm run typecheck`, `npm test`, or `npm run build-storybook` in this environment (`node` not available on PATH). **Run locally from `app/`** to validate.
 
 **Proposed rules:** None.
+
+**Repo (same day):** Added **`agents/_config/clients/now-boarding.json`** (canonical `fileKey`, `fileUrl`, `figma.nodes.buttonsFrame`), **`agents/_config/README.md`**, and **`agents/_config/client.schema.json`**. Wired **`agents/figma-sync/.agent.md`** (“Before doing anything”, Step 2, Figma MCP) and root **`README.md`** / **`docs/architecture.md`** / **`docs/TASKS.md`** to treat client JSON as source of truth; optional env overrides documented in `_config/README.md`.

@@ -23,7 +23,7 @@ This **README** stays **high level**: what the pipeline does, how a sync run fit
 
 | Location | Purpose |
 |----------|---------|
-| **`agents/`** | Agent definitions (`<name>/.agent.md`), [`agents/_skills/`](agents/_skills/), [`agents/_operations/`](agents/_operations/) (feedback log, proposed rule inbox, client quirks), [`agents/__templates/`](agents/__templates/) |
+| **`agents/`** | Agent definitions (`<name>/.agent.md`), [`agents/_skills/`](agents/_skills/), [`agents/_operations/`](agents/_operations/) (feedback log, proposed rule inbox, client quirks), [`agents/_config/`](agents/_config/) (per-client Figma pointers), [`agents/__templates/`](agents/__templates/) |
 
 **Editor-only:** [`.claude/README.md`](.claude/README.md), [`.cursor/README.md`](.cursor/README.md).
 
@@ -53,9 +53,9 @@ This **README** stays **high level**: what the pipeline does, how a sync run fit
 
 ## Figma file
 
-URL: `https://www.figma.com/design/h7IRa1i2N5ucusuhqIhCTJ/` (Now Boarding Design System Kit — update per client).
+**Canonical pointers** (file key, URL, node ids for sync): [`agents/_config/clients/now-boarding.json`](agents/_config/clients/now-boarding.json) — sample client **Now Boarding** (Design System Kit). See [`agents/_config/README.md`](agents/_config/README.md) for overrides (`FIGMA_CLIENT`, etc.).
 
-**Future:** This should become **dynamic** (config, env, or client profile) so the file URL is not hard-coded here. Tracked in [`docs/TASKS.md`](docs/TASKS.md).
+Human-readable duplicate: `https://www.figma.com/design/h7IRa1i2N5ucusuhqIhCTJ/` (same as `fileUrl` in the JSON unless overridden).
 
 ---
 

@@ -6,6 +6,6 @@
 
 | Status | Item |
 |--------|------|
-| Pending | **Dynamic Figma file URL** — today the default file URL lives in the root [`README.md`](../README.md); replace with config or env-driven source per client/deployment so the README is not hand-edited each time. |
+| Done | **Figma file pointers per client** — canonical [`agents/_config/clients/`](../agents/_config/clients/) (default [`now-boarding.json`](../agents/_config/clients/now-boarding.json)); env overrides in [`agents/_config/README.md`](../agents/_config/README.md). Root README duplicates URL for humans only. |
 
 _Add new rows as the backlog grows._

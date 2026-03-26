@@ -1,0 +1,17 @@
+{
+  "$schema": "../client.schema.json",
+  "id": "now-boarding",
+  "displayName": "Now Boarding",
+  "role": "design_partner",
+  "figma": {
+    "fileKey": "h7IRa1i2N5ucusuhqIhCTJ",
+    "fileUrl": "https://www.figma.com/design/h7IRa1i2N5ucusuhqIhCTJ/",
+    "fileLabel": "Now Boarding Design System Kit",
+    "nodes": {
+      "buttonsFrame": "138:3677",
+      "theme": null,
+      "variables": null
+    }
+  },
+  "notes": "Sample / boilerplate client — design partner; kit used to demonstrate styleguidehero. Add node ids as you lock sections (variables page, foundations frame, etc.)."
+}
