@@ -14,7 +14,8 @@
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "chromatic": "chromatic"
+    "chromatic": "chromatic",
+    "validate:client-config": "node ./scripts/validate-client-config.mjs"
   },
   "dependencies": {
     "@radix-ui/react-dropdown-menu": "^2.1.16",

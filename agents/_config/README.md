@@ -25,3 +25,5 @@ Environment variables may override the JSON for CI or one-off runs (not required
 3. Point **`FIGMA_CLIENT`** at the new `id` or document the default in [`../figma-sync/.agent.md`](../figma-sync/.agent.md).
 
 **Schema:** [`client.schema.json`](client.schema.json) (informal; validate in editors that support JSON Schema if useful).
+
+**Check JSON parses:** from `app/`, run **`npm run validate:client-config`** (Node — parses `client.schema.json` and every `clients/*.json`).
