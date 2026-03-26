@@ -122,7 +122,7 @@ Supported for some targets (e.g. React). Steps belong in the **`Active target`**
 |------|------|
 | `agents/_skills/…/references/*.md` | Long design specs (loaded only via each skill’s `SKILL.md`) |
 | `agents/figma-sync/.agent.md` (**Active target**) | Stack-specific generation for this checkout |
-| `app/BUTTONS_SPEC.md` | Button-area spec (current app) |
+| `agents/_skills/design-foundations/references/BUTTONS_SPEC.md` | Button-area spec (controls matrix) |
 | `app/` | Output tree for the React Storybook target (first target) |
 
 ### Key principle

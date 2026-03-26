@@ -1,23 +1,18 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 import { ThemeTokens } from './ThemeTokens'
 
-/**
- * Mirrors the idea of [Grafana’s Foundations / Theme docs](https://developers.grafana.com/ui/latest/index.html?path=/docs/foundations-theme--docs):
- * one place to see **all base variables** before building components (e.g. Button).
- */
 const meta = {
   title: 'Foundations/Theme',
   component: ThemeTokens,
-  tags: ['autodocs'],
   parameters: {
-    layout: 'padded',
+    layout: 'fullscreen',
     docs: {
       description: {
-        component:
-          'Canonical list of CSS variables from `app/src/index.css` (@theme). Establish and validate tokens here before expanding past **Button**.',
+        component: 'Live `@theme` tokens from `app/src/index.css` (read via computed styles in the preview).',
       },
     },
   },
+  tags: ['autodocs'],
 } satisfies Meta<typeof ThemeTokens>
 
 export default meta
@@ -25,6 +20,9 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Docs: Story = {
-  name: 'Docs',
-  render: () => <ThemeTokens />,
+  render: () => (
+    <div className="bg-[#e5e7eb] p-8">
+      <ThemeTokens />
+    </div>
+  ),
 }

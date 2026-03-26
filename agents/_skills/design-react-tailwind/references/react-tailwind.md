@@ -38,7 +38,7 @@ Conventions for **this repository’s default stack**: React, Tailwind, design t
 
 ## 6. Specs and Figma alignment
 
-- Align with [`app/BUTTONS_SPEC.md`](../../../../app/BUTTONS_SPEC.md) in the buttons area.
+- Align with [`design-foundations` **`BUTTONS_SPEC.md`**](../design-foundations/references/BUTTONS_SPEC.md) in the buttons area.
 - Match specified dimensions when the spec says so.
 
 ## 7. Accessibility (HTML/React)

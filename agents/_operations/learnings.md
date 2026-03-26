@@ -46,3 +46,17 @@ The **`figma-sync`** agent reads this file at the start of a run and appends **d
 **Proposed rules:** None.
 
 **Repo (same day):** Added **`agents/_config/clients/now-boarding.json`** (canonical `fileKey`, `fileUrl`, `figma.nodes.buttonsFrame`), **`agents/_config/README.md`**, and **`agents/_config/client.schema.json`**. Wired **`agents/figma-sync/.agent.md`** (“Before doing anything”, Step 2, Figma MCP) and root **`README.md`** / **`docs/architecture.md`** / **`docs/TASKS.md`** to treat client JSON as source of truth; optional env overrides documented in `_config/README.md`.
+
+### 2026-03-26 — Now Boarding figma-sync (MCP)
+
+**Client:** [`agents/_config/clients/now-boarding.json`](../_config/clients/now-boarding.json) — `fileKey` `h7IRa1i2N5ucusuhqIhCTJ`, node `138:3677` (Buttons section).
+
+**Readiness:** READY — same as prior entry; large frame → used sub-nodes for `get_design_context`.
+
+**Step 2 — tokens:** `get_variable_defs` (138:3677). Updated **`app/src/index.css`**: `--radius-control-small` **4px** (Figma **Radius/Control Small**); **`--shadow-button`** from **Shadows/Button**. **`tokenManifest.ts`**: Elevation group for `--shadow-button`.
+
+**Button:** `get_design_context` on `138:4113` (solid default), `138:4194` (solid hover), `1583:4641` (solid pressed), `138:4116` (white default). Figma solid **hover/pressed** keep **UI/Action** fill and add **Shadows/Button** — not a darker blue. **`Button.tsx`** solid style: `hover` / `active` use `shadow-[var(--shadow-button)]`; removed prior `brightness` active tweak on the base button class list.
+
+**Other components:** No TSX edits (Link, IconButton, StackedButton, LoginButton, Dropdown).
+
+**Validate locally (from `app/`):** `npm run typecheck`, `npm test`, `npm run build-storybook`.

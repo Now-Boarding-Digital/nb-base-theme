@@ -36,6 +36,10 @@ export const THEME_TOKEN_GROUPS: TokenGroup[] = [
     ],
   },
   {
+    title: 'Elevation',
+    tokens: [{ name: '--shadow-button', label: 'Shadow / Button' }],
+  },
+  {
     title: 'Typography',
     tokens: [{ name: '--font-primary', label: 'Primary font stack' }],
   },

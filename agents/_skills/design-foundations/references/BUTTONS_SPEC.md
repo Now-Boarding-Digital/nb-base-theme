@@ -1,4 +1,6 @@
-# Buttons Specification — Now Boarding Design System Kit
+# Buttons specification — Now Boarding Design System Kit
+
+**Location:** `agents/_skills/design-foundations/references/` — cross-target **control** reference (sizes, styles, states). Stack implementation (React + Tailwind) should align via **`design-react-tailwind`** and **`agents/figma-sync`** **Active target**.
 
 Canonical reference for all button-related components, their sizes, styles, states, and variations.
 

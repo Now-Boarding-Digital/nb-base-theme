@@ -25,7 +25,10 @@ const sizeClasses: Record<ButtonSize, string> = {
 }
 
 const styleClasses: Record<ButtonStyle, string> = {
-  solid: 'bg-[var(--color-ui-action)] text-[var(--color-neutral-white)] border-[var(--color-ui-action)] hover:bg-[var(--color-ui-action-hover)] hover:border-[var(--color-ui-action-hover)] disabled:hover:bg-[var(--color-ui-action)] disabled:hover:border-[var(--color-ui-action)]',
+  solid:
+    'bg-[var(--color-ui-action)] text-[var(--color-neutral-white)] border-[var(--color-ui-action)] ' +
+    'hover:shadow-[var(--shadow-button)] active:shadow-[var(--shadow-button)] ' +
+    'disabled:hover:shadow-none disabled:hover:bg-[var(--color-ui-action)] disabled:hover:border-[var(--color-ui-action)]',
   white: 'bg-[var(--color-neutral-white)] text-[var(--color-text-link)] border-transparent hover:bg-[#e8f2ff] disabled:hover:bg-[var(--color-neutral-white)]',
   outline: 'bg-transparent text-[var(--color-ui-action)] border-[var(--color-ui-action)] hover:bg-[var(--color-action-tint)] disabled:hover:bg-transparent',
 }
@@ -51,7 +54,6 @@ export function Button({
       className={[
         'inline-flex items-center justify-center gap-2 font-bold border transition-all duration-150 cursor-pointer',
         'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[4px] focus-visible:outline-[var(--color-focus-ring)]',
-        'enabled:active:brightness-[0.97]',
         sizeClasses[size],
         styleClasses[style],
         isDisabled && 'opacity-50 cursor-not-allowed',

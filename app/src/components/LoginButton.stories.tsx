@@ -1,18 +1,16 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 import { LoginButton } from './LoginButton'
 
-const meta: Meta<typeof LoginButton> = {
+const meta = {
   title: 'Design System/LoginButton',
   component: LoginButton,
   tags: ['autodocs'],
-  parameters: {
-    docs: {
-      description: {
-        component: 'Social / auth login buttons (Figma 138:3677, Login Buttons).',
-      },
-    },
+  args: {
+    provider: 'google',
+    disabled: false,
   },
-}
+} satisfies Meta<typeof LoginButton>
+
 export default meta
 
 type Story = StoryObj<typeof meta>
@@ -25,21 +23,11 @@ export const Apple: Story = {
   args: { provider: 'apple' },
 }
 
-export const Facebook: Story = {
-  args: { provider: 'facebook' },
-}
-
-export const Email: Story = {
+export const DefaultProvider: Story = {
+  name: 'Email',
   args: { provider: 'default' },
 }
 
-export const AllProviders: Story = {
-  render: () => (
-    <div className="flex flex-col gap-3 p-4 max-w-md">
-      <LoginButton provider="google" />
-      <LoginButton provider="apple" />
-      <LoginButton provider="facebook" />
-      <LoginButton provider="default" />
-    </div>
-  ),
+export const Disabled: Story = {
+  args: { provider: 'google', disabled: true },
 }
