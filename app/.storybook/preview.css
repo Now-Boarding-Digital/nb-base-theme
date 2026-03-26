@@ -1,0 +1,11 @@
+/**
+ * Storybook iframe: `index.css` centers the body like the Vite app shell; docs/stories need full width.
+ */
+body {
+  display: block;
+  place-items: unset;
+}
+
+#storybook-root {
+  width: 100%;
+}

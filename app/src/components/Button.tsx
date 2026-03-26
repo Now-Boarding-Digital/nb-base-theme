@@ -1,0 +1,77 @@
+/**
+ * Button - from Now Boarding Design System Kit
+ * Specs from Figma get_design_context
+ */
+export type ButtonStyle = 'solid' | 'white' | 'outline';
+export type ButtonSize = 'large' | 'medium' | 'small';
+export type ButtonIconPosition = 'none' | 'left' | 'right';
+
+export interface ButtonProps {
+  children?: React.ReactNode;
+  label?: string;
+  style?: ButtonStyle;
+  size?: ButtonSize;
+  icon?: ButtonIconPosition;
+  loading?: boolean;
+  disabled?: boolean;
+  className?: string;
+  onClick?: () => void;
+}
+
+const sizeClasses: Record<ButtonSize, string> = {
+  large: 'min-w-32 px-8 py-4 rounded-[var(--radius-control-large)] text-base leading-6',
+  medium: 'min-w-16 px-6 py-2.5 rounded-[var(--radius-control-medium)] text-sm leading-5',
+  small: 'min-w-16 px-4 py-2 rounded-[var(--radius-control-small)] text-xs leading-4',
+}
+
+const styleClasses: Record<ButtonStyle, string> = {
+  solid: 'bg-[var(--color-ui-action)] text-[var(--color-neutral-white)] border-[var(--color-ui-action)] hover:bg-[var(--color-ui-action-hover)] hover:border-[var(--color-ui-action-hover)] disabled:hover:bg-[var(--color-ui-action)] disabled:hover:border-[var(--color-ui-action)]',
+  white: 'bg-[var(--color-neutral-white)] text-[var(--color-text-link)] border-transparent hover:bg-[#e8f2ff] disabled:hover:bg-[var(--color-neutral-white)]',
+  outline: 'bg-transparent text-[var(--color-ui-action)] border-[var(--color-ui-action)] hover:bg-[var(--color-action-tint)] disabled:hover:bg-transparent',
+}
+
+import { PlusIcon } from './icons'
+
+export function Button({
+  children,
+  label = 'Label',
+  style = 'solid',
+  size = 'large',
+  icon = 'none',
+  loading = false,
+  disabled = false,
+  className = '',
+  onClick,
+}: ButtonProps) {
+  const isDisabled = disabled || loading;
+
+  return (
+    <button
+      type="button"
+      className={[
+        'inline-flex items-center justify-center gap-2 font-bold border transition-all duration-150 cursor-pointer',
+        'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[4px] focus-visible:outline-[var(--color-focus-ring)]',
+        'enabled:active:brightness-[0.97]',
+        sizeClasses[size],
+        styleClasses[style],
+        isDisabled && 'opacity-50 cursor-not-allowed',
+        loading && 'relative',
+        className,
+      ].filter(Boolean).join(' ')}
+      disabled={isDisabled}
+      onClick={onClick}
+    >
+      {loading && (
+        <span
+          className="absolute inset-0 m-auto w-4 h-4 border-2 border-current border-r-transparent rounded-full animate-btn-spin"
+          aria-hidden
+        />
+      )}
+      <span className={`flex items-center justify-center gap-2 ${loading ? 'invisible' : ''}`}>
+        {icon === 'left' && <PlusIcon size={size} />}
+        {children ?? label}
+        {icon === 'right' && <PlusIcon size={size} />}
+      </span>
+    </button>
+  );
+}
