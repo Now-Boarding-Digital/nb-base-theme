@@ -60,3 +60,13 @@ The **`figma-sync`** agent reads this file at the start of a run and appends **d
 **Other components:** No TSX edits (Link, IconButton, StackedButton, LoginButton, Dropdown).
 
 **Validate locally (from `app/`):** `npm run typecheck`, `npm test`, `npm run build-storybook`.
+
+### 2026-03-26 — clear-stories + figma-sync (regenerate stories)
+
+**Client:** Now Boarding — `fileKey` `h7IRa1i2N5ucusuhqIhCTJ`, `buttonsFrame` `138:3677`.
+
+**Clear:** Removed all `app/src/**/*.stories.*` (same outcome as `npm run clear-stories` / `node ./scripts/clear-stories.mjs`).
+
+**Agent run:** Read **`agents/_skills/design-foundations/references/BUTTONS_SPEC.md`**. **Step 1** READY. **Step 2** `get_variable_defs` + `get_design_context` (`138:4113`) — tokens and **`Button.tsx`** already aligned; **no** `index.css` / component TSX changes. **Regenerated** co-located stories: **`Theme.stories.tsx`**, **`Button.stories.tsx`** (Examples, Default, Loading, Disabled), **`Link`**, **`IconButton`**, **`StackedButton`**, **`LoginButton`**, **`Dropdown`**.
+
+**Validate (from `app/`):** `npm run typecheck`, `npm test`, `npm run build-storybook`.
