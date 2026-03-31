@@ -45,11 +45,11 @@ The **`figma-sync`** agent reads this file at the start of a run and appends **d
 
 **Proposed rules:** None.
 
-**Repo (same day):** Added **`agents/_config/clients/now-boarding.json`** (canonical `fileKey`, `fileUrl`, `figma.nodes.buttonsFrame`), **`agents/_config/README.md`**, and **`agents/_config/client.schema.json`**. Wired **`agents/figma-sync/.agent.md`** (“Before doing anything”, Step 2, Figma MCP) and root **`README.md`** / **`docs/architecture.md`** / **`docs/TASKS.md`** to treat client JSON as source of truth; optional env overrides documented in `_config/README.md`.
+**Repo (same day):** Added **`agents/_config/clients/`** client profile JSON (default profile is **`sample.json`** today), **`agents/_config/README.md`**, and **`agents/_config/client.schema.json`**. Wired **`agents/figma-sync/.agent.md`** (“Before doing anything”, Step 2, Figma MCP) and root **`README.md`** / **`docs/architecture.md`** / **`docs/TASKS.md`** to treat client JSON as source of truth; optional env overrides documented in `_config/README.md`.
 
-### 2026-03-26 — Now Boarding figma-sync (MCP)
+### 2026-03-26 — figma-sync (MCP)
 
-**Client:** [`agents/_config/clients/now-boarding.json`](../_config/clients/now-boarding.json) — `fileKey` `h7IRa1i2N5ucusuhqIhCTJ`, node `138:3677` (Buttons section).
+**Client:** [`agents/_config/clients/sample.json`](../_config/clients/sample.json) — `fileKey` `h7IRa1i2N5ucusuhqIhCTJ`, node `138:3677` (Buttons section).
 
 **Readiness:** READY — same as prior entry; large frame → used sub-nodes for `get_design_context`.
 
@@ -63,7 +63,7 @@ The **`figma-sync`** agent reads this file at the start of a run and appends **d
 
 ### 2026-03-26 — clear-stories + figma-sync (regenerate stories)
 
-**Client:** Now Boarding — `fileKey` `h7IRa1i2N5ucusuhqIhCTJ`, `buttonsFrame` `138:3677`.
+**Client:** `sample` — `fileKey` `h7IRa1i2N5ucusuhqIhCTJ`, `buttonsFrame` `138:3677`.
 
 **Clear:** Removed all `app/src/**/*.stories.*` (same outcome as `npm run clear-stories` / `node ./scripts/clear-stories.mjs`).
 

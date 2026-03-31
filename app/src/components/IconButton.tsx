@@ -1,5 +1,5 @@
 /**
- * Icon Button - from Now Boarding Design System Kit
+ * Circular icon button (design-system control)
  * Circular buttons with a plus icon. Variations: Style (Solid/Outline/Transparent/White), Size (Large/Medium/Small)
  */
 export type IconButtonStyle = 'solid' | 'outline' | 'transparent' | 'white';

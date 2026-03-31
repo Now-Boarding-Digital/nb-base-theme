@@ -1,5 +1,5 @@
 /**
- * Shared icons for Now Boarding Design System
+ * Shared icons for design-system components
  */
 
 export type IconSize = 'large' | 'medium' | 'small'

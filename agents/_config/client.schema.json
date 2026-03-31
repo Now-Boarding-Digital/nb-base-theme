@@ -20,7 +20,7 @@
           "additionalProperties": {
             "oneOf": [{ "type": "string", "pattern": "^[0-9]+:[0-9]+$" }, { "type": "null" }]
           },
-          "description": "Node ids for MCP (use colon form: 138:3677). Null = not set yet."
+          "description": "Node ids for MCP (use colon form: 123:456). Null = not set yet."
         }
       }
     },

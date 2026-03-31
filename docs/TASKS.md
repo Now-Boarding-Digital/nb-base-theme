@@ -6,6 +6,6 @@
 
 | Status | Item |
 |--------|------|
-| Done | **Figma file pointers per client** — canonical [`agents/_config/clients/`](../agents/_config/clients/) (default [`now-boarding.json`](../agents/_config/clients/now-boarding.json)); env overrides in [`agents/_config/README.md`](../agents/_config/README.md). Root README duplicates URL for humans only. |
+| Done | **Figma file pointers per client** — canonical [`agents/_config/clients/`](../agents/_config/clients/) (default [`sample.json`](../agents/_config/clients/sample.json)); env overrides in [`agents/_config/README.md`](../agents/_config/README.md). |
 
 _Add new rows as the backlog grows._

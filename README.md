@@ -53,9 +53,7 @@ This **README** stays **high level**: what the pipeline does, how a sync run fit
 
 ## Figma file
 
-**Canonical pointers** (file key, URL, node ids for sync): [`agents/_config/clients/now-boarding.json`](agents/_config/clients/now-boarding.json) — sample client **Now Boarding** (Design System Kit). See [`agents/_config/README.md`](agents/_config/README.md) for overrides (`FIGMA_CLIENT`, etc.).
-
-Human-readable duplicate: `https://www.figma.com/design/h7IRa1i2N5ucusuhqIhCTJ/` (same as `fileUrl` in the JSON unless overridden).
+**Canonical pointers** (file key, URL, node ids for sync): [`agents/_config/clients/`](agents/_config/clients/) — default profile [`sample.json`](agents/_config/clients/sample.json). See [`agents/_config/README.md`](agents/_config/README.md) for overrides (`FIGMA_CLIENT`, etc.).
 
 ---
 

@@ -1,6 +1,8 @@
-# Buttons specification — Now Boarding Design System Kit
+# Buttons specification (cross-target)
 
 **Location:** `agents/_skills/design-foundations/references/` — cross-target **control** reference (sizes, styles, states). Stack implementation (React + Tailwind) should align via `**design-react-tailwind`** and `**agents/figma-sync**` **Active target**.
+
+**Values** (px, hex, radii) are **illustrative** unless they match your client’s Figma variables and tokens; treat the **matrix shape** (families, axes, states) as the stable contract. Per-client numbers live in Figma → synced CSS/tokens under the active target.
 
 Canonical reference for all button-related components, their sizes, styles, states, and variations.
 

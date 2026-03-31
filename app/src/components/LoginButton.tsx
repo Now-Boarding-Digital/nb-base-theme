@@ -1,5 +1,5 @@
 /**
- * Login Button - from Now Boarding Design System Kit
+ * Social / auth login button (design-system control)
  * Wide buttons for social login (Google, Apple, etc.) or default
  */
 export type LoginButtonProvider = 'google' | 'apple' | 'facebook' | 'default';

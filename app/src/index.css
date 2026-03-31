@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* Design tokens - Now Boarding Design System Kit */
+/* Design tokens — sync from Figma variables per active client */
 @theme {
   --color-ui-action: #006fff;
   /* Kept for non–Figma-solid patterns; solid hover uses --shadow-button + same fill per kit */

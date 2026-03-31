@@ -1,5 +1,5 @@
 /**
- * Link - from Now Boarding Design System Kit (Links section)
+ * Text link control (design-system)
  * Text links with Size (Large/Medium/Small), Icon (None/Left/Right), Bold (On/Off)
  */
 export type LinkSize = 'large' | 'medium' | 'small';

@@ -1,5 +1,5 @@
 /**
- * Stacked Button - from Now Boarding Design System Kit
+ * Full-width stacked button (design-system control)
  * Vertical buttons (64×56px in Figma). Style=Solid/Outline Grey/Grey/Transparent/White
  */
 export type StackedButtonStyle = 'solid' | 'outline-grey' | 'grey' | 'transparent' | 'white';

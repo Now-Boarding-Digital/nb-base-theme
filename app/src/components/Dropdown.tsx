@@ -1,5 +1,5 @@
 /**
- * Dropdown - Radix UI dropdown with Now Boarding Design System styling
+ * Dropdown trigger + menu (Radix UI; design-system styling)
  * Uses Radix for behavior (accessibility, keyboard, focus) + our design tokens for appearance
  */
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu'

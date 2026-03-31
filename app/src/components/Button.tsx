@@ -1,5 +1,5 @@
 /**
- * Button - from Now Boarding Design System Kit
+ * Primary action button (design-system control)
  * Specs from Figma get_design_context
  */
 export type ButtonStyle = 'solid' | 'white' | 'outline';
