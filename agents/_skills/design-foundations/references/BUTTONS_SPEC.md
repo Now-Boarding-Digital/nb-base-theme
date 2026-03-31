@@ -12,6 +12,36 @@ Canonical reference for all button-related components, their sizes, styles, stat
 
 Text + optional icon. Rectangular with rounded corners.
 
+### Variant property model (authoring + Storybook)
+
+Buttons are a **single component family** controlled by properties, not separate components per visual combination.
+
+#### Core properties
+
+| Property | Values | Notes |
+|----------|--------|-------|
+| `size` | `large`, `medium`, `small` | Controls height, padding, radius, and typography scale |
+| `style` | `solid`, `white`, `outline` | Visual treatment |
+| `icon` | `none`, `left`, `right` | Icon placement relative to label |
+| `state` | `default`, `hover`, `disabled`, `loading` | Interaction/state representation |
+| `labelText` | string | Text content shown in the button |
+
+#### Variable modes
+
+Buttons should support the active variable mode (theme), e.g. `auto(light/dark)` where available.
+Tokens and colors must resolve from the active mode rather than hardcoded values.
+
+#### Composition rule
+
+A rendered button is the combination:
+`button(size, style, icon, state, labelText, themeMode)`
+
+All documented examples should be representable through this property model.
+
+#### Storybook coverage
+
+Keep focused stories for each main axis (`Styles`, `Sizes`, `Icon`, `State`) and include one extra `All Combinations` story as a visual safety net to catch missing style/color/state combinations across the full variant matrix.
+
 ### Sizes
 
 
@@ -86,6 +116,10 @@ Inline text links. No background by default.
 | Default  | Blue text (#0c65d9)     |
 | Hover    | Underline, darker blue  |
 | Disabled | 50% opacity, no pointer |
+
+### Storybook coverage
+
+Keep focused stories for each axis (`Sizes`, `Icon`, `Weight`, `State`) and include one extra `All Combinations` story as a visual safety net to catch missing size/icon/weight/state combinations.
 
 
 ---

@@ -70,3 +70,25 @@ The **`figma-sync`** agent reads this file at the start of a run and appends **d
 **Agent run:** Read **`agents/_skills/design-foundations/references/BUTTONS_SPEC.md`**. **Step 1** READY. **Step 2** `get_variable_defs` + `get_design_context` (`138:4113`) — tokens and **`Button.tsx`** already aligned; **no** `index.css` / component TSX changes. **Regenerated** co-located stories: **`Theme.stories.tsx`**, **`Button.stories.tsx`** (Examples, Default, Loading, Disabled), **`Link`**, **`IconButton`**, **`StackedButton`**, **`LoginButton`**, **`Dropdown`**.
 
 **Validate (from `app/`):** `npm run typecheck`, `npm test`, `npm run build-storybook`.
+
+### 2026-03-31 — figma-sync (restore stories after clear)
+
+**Active target:** React + Storybook (`app/`), Vite.
+
+**Client:** `sample` — `fileKey` `h7IRa1i2N5ucusuhqIhCTJ`, `buttonsFrame` `138:3677`.
+
+**Readiness:** READY — Buttons frame metadata confirms Auto Layout variant sets across `Size`, `Style`, `Icon`, and `State`; names are explicit and consistent for sync.
+
+**Step 2 — tokens:** `get_variable_defs` (`138:3677`) returned expected token defs (e.g., `UI/Action`, `Text/Link`, `Radius/Control Large|Medium|Small`, `Shadows/Button`, `Opacity/Disabled`). No token file changes required for this run.
+
+**Components synced:** Story artifacts restored:
+- `app/src/foundations/Theme.stories.tsx`
+- `app/src/components/Button.stories.tsx`
+
+**Story structure applied:** `Design System/Button` named stories now follow `Styles` → `Sizes` → `Icon` → `State` to match Figma controls flow; controls use labels `Style`, `Size`, `Icon`, `State`, `Label Text`.
+
+**Components skipped (no TSX diff):** `Button.tsx` (already aligned with `state` + variant props model).
+
+**What failed and why:** Existing running Storybook process started before stories were regenerated and initially logged “No story files found.” Restart Storybook to refresh discovery if stories do not appear immediately.
+
+**Proposed rules:** None (run followed current canonical `figma-sync` + Buttons spec updates).

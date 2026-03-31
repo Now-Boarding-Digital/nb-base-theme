@@ -18,7 +18,15 @@ const preview: Preview = {
         if (a.title !== b.title) return a.title.localeCompare(b.title, undefined, { numeric: true })
 
         if (a.title === 'Design System/Button') {
-          const order = ['Examples', 'Default', 'Loading', 'Disabled']
+          const order = ['Styles', 'Sizes', 'Icon', 'State', 'All Combinations']
+          const ia = order.indexOf(a.name)
+          const ib = order.indexOf(b.name)
+          if (ia !== -1 && ib !== -1) return ia - ib
+          if (ia !== -1) return -1
+          if (ib !== -1) return 1
+        }
+        if (a.title === 'Design System/Link') {
+          const order = ['Sizes', 'Icon', 'Weight', 'State', 'All Combinations']
           const ia = order.indexOf(a.name)
           const ib = order.indexOf(b.name)
           if (ia !== -1 && ib !== -1) return ia - ib
