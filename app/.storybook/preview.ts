@@ -94,6 +94,22 @@ const preview: Preview = {
           if (ia !== -1) return -1
           if (ib !== -1) return 1
         }
+        if (a.title === 'Design System/Controls/Switch') {
+          const order = ['Playground', 'Sizes', 'State', 'All Combinations']
+          const ia = order.indexOf(a.name)
+          const ib = order.indexOf(b.name)
+          if (ia !== -1 && ib !== -1) return ia - ib
+          if (ia !== -1) return -1
+          if (ib !== -1) return 1
+        }
+        if (a.title === 'Design System/Controls/Radio') {
+          const order = ['Playground', 'Sizes', 'State', 'Selection', 'All Combinations']
+          const ia = order.indexOf(a.name)
+          const ib = order.indexOf(b.name)
+          if (ia !== -1 && ib !== -1) return ia - ib
+          if (ia !== -1) return -1
+          if (ib !== -1) return 1
+        }
         return a.name.localeCompare(b.name, undefined, { numeric: true })
       },
     },

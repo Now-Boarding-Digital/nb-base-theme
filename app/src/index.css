@@ -17,6 +17,7 @@
   --color-ui-card: #ffffff;
   --color-controls-field: #ffffff;
   --color-controls-field-stroke-active: #006fff;
+  --color-controls-dark-tint: #334155;
   /* TextField semantic contract tokens (client-remapped roles). */
   --color-field-border-default: var(--color-neutral-gray-200);
   --color-field-border-hover: var(--color-neutral-gray-300);
@@ -144,6 +145,21 @@
   --color-dropdown-item-hover-text: var(--color-neutral-gray-700);
   --color-dropdown-item-focus-bg: var(--color-action-tint);
   --color-dropdown-item-focus-text: var(--color-ui-action);
+  /* Switch role tokens. */
+  --color-switch-track-bg-off: var(--color-controls-dark-tint);
+  --color-switch-track-bg-on: var(--color-ui-action);
+  --color-switch-thumb-bg: var(--color-neutral-white);
+  --color-switch-border: transparent;
+  --color-switch-focus-ring: var(--color-action-outline);
+  --opacity-switch-disabled: var(--opacity-disabled);
+  /* Radio role tokens. */
+  --color-radio-ring-unselected: var(--color-controls-dark-tint);
+  --color-radio-ring-selected: var(--color-ui-action);
+  --color-radio-dot: var(--color-ui-action);
+  --color-radio-hover-bg: var(--color-ui-action);
+  --color-radio-focus-ring: var(--color-action-outline);
+  --opacity-radio-hover: var(--opacity-hover);
+  --opacity-radio-disabled: var(--opacity-disabled);
   --color-ui-hint-icon: #6e7f97;
   --color-semantic-purple-default: #8e51ff;
   --color-semantic-red-default: #fb2c36;

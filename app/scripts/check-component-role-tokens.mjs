@@ -12,6 +12,8 @@ const rolePrefixesByFile = {
   'LoginButton.tsx': ['color-login-'],
   'Dropdown.tsx': ['color-dropdown-'],
   'TextField.tsx': ['color-field-'],
+  'Switch.tsx': ['color-switch-', 'opacity-switch-'],
+  'Radio.tsx': ['color-radio-', 'opacity-radio-'],
 }
 
 const allowedSharedPrefixes = ['color-neutral-', 'color-semantic-', 'color-social-']
