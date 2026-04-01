@@ -22,10 +22,14 @@ const sizeClasses: Record<IconButtonSize, string> = {
 }
 
 const styleClasses: Record<IconButtonStyle, string> = {
-  solid: 'bg-[var(--color-ui-action)] text-[var(--color-neutral-white)] border-[var(--color-ui-action)] hover:bg-[var(--color-ui-action-hover)] hover:border-[var(--color-ui-action-hover)] disabled:hover:bg-[var(--color-ui-action)] disabled:hover:border-[var(--color-ui-action)]',
-  outline: 'bg-transparent text-[var(--color-ui-action)] border-[var(--color-ui-action)] hover:bg-[var(--color-action-tint)] disabled:hover:bg-transparent',
-  transparent: 'bg-transparent text-[var(--color-ui-action)] border-transparent hover:bg-[var(--color-action-tint)] disabled:hover:bg-transparent',
-  white: 'bg-[var(--color-neutral-white)] text-[var(--color-ui-action)] border-[var(--color-neutral-white)] hover:bg-[var(--color-control-hover)] hover:border-[var(--color-control-hover)] disabled:hover:bg-[var(--color-neutral-white)] disabled:hover:border-[var(--color-neutral-white)]',
+  solid:
+    '[--color-icon-button-bg:var(--color-icon-button-solid-bg)] [--color-icon-button-text:var(--color-icon-button-solid-text)] [--color-icon-button-border:var(--color-icon-button-solid-border)] [--color-icon-button-hover-bg:var(--color-icon-button-solid-hover-bg)] [--color-icon-button-hover-border:var(--color-icon-button-solid-hover-border)]',
+  outline:
+    '[--color-icon-button-bg:transparent] [--color-icon-button-text:var(--color-icon-button-outline-text)] [--color-icon-button-border:var(--color-icon-button-outline-border)] [--color-icon-button-hover-bg:var(--color-icon-button-outline-hover-bg)] [--color-icon-button-hover-border:var(--color-icon-button-outline-border)]',
+  transparent:
+    '[--color-icon-button-bg:transparent] [--color-icon-button-text:var(--color-icon-button-transparent-text)] [--color-icon-button-border:transparent] [--color-icon-button-hover-bg:var(--color-icon-button-transparent-hover-bg)] [--color-icon-button-hover-border:transparent]',
+  white:
+    '[--color-icon-button-bg:var(--color-icon-button-white-bg)] [--color-icon-button-text:var(--color-icon-button-white-text)] [--color-icon-button-border:var(--color-icon-button-white-border)] [--color-icon-button-hover-bg:var(--color-icon-button-white-hover-bg)] [--color-icon-button-hover-border:var(--color-icon-button-white-hover-border)]',
 }
 
 import { PlusIcon } from './icons'
@@ -44,6 +48,9 @@ export function IconButton({
       type="button"
       className={[
         'inline-flex items-center justify-center rounded-full border cursor-pointer transition-all duration-150 disabled:opacity-50 disabled:cursor-not-allowed',
+        'bg-[var(--color-icon-button-bg)] text-[var(--color-icon-button-text)] border-[var(--color-icon-button-border)]',
+        'hover:bg-[var(--color-icon-button-hover-bg)] hover:border-[var(--color-icon-button-hover-border)]',
+        'disabled:hover:bg-[var(--color-icon-button-bg)] disabled:hover:border-[var(--color-icon-button-border)]',
         sizeClasses[size],
         styleClasses[style],
         className,

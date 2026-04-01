@@ -15,6 +15,11 @@ const preview: Preview = {
         const ra = rank(a.title)
         const rb = rank(b.title)
         if (ra !== rb) return ra - rb
+        if (a.title.startsWith('Design System') && b.title.startsWith('Design System')) {
+          const aIsForm = a.title.startsWith('Design System/Form/')
+          const bIsForm = b.title.startsWith('Design System/Form/')
+          if (aIsForm !== bIsForm) return aIsForm ? 1 : -1
+        }
         if (a.title.startsWith('Foundations') && b.title.startsWith('Foundations')) {
           const order = ['Foundations/Variables']
           const ia = order.indexOf(a.title)
@@ -24,6 +29,14 @@ const preview: Preview = {
           if (ib !== -1) return 1
         }
         if (a.title !== b.title) return a.title.localeCompare(b.title, undefined, { numeric: true })
+
+        const terminalRank = (name) => {
+          if (name === 'Docs') return -1
+          if (name === 'All Combinations') return 1
+          return 0
+        }
+        const terminalDiff = terminalRank(a.name) - terminalRank(b.name)
+        if (terminalDiff !== 0) return terminalDiff
 
         if (a.title === 'Design System/Button') {
           const order = ['Playground', 'Styles', 'Sizes', 'Icon', 'State', 'All Combinations']
@@ -66,7 +79,15 @@ const preview: Preview = {
           if (ib !== -1) return 1
         }
         if (a.title === 'Design System/Dropdown') {
-          const order = ['Playground', 'Sizes', 'Variant', 'State', 'All Combinations']
+          const order = ['Playground', 'Sizes', 'Variant', 'Input Controls', 'State', 'All Combinations']
+          const ia = order.indexOf(a.name)
+          const ib = order.indexOf(b.name)
+          if (ia !== -1 && ib !== -1) return ia - ib
+          if (ia !== -1) return -1
+          if (ib !== -1) return 1
+        }
+        if (a.title === 'Design System/Form/TextField') {
+          const order = ['Playground', 'Sizes', 'Types', 'State', 'All Combinations']
           const ia = order.indexOf(a.name)
           const ib = order.indexOf(b.name)
           if (ia !== -1 && ib !== -1) return ia - ib

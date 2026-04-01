@@ -68,12 +68,24 @@ export const Playground: Story = {
 
 export const Sizes: Story = {
   name: 'Sizes',
-  render: () => <div className="flex flex-col gap-2">{sizes.map((size) => <Link key={size} size={size} label={size} />)}</div>,
+  render: () => (
+    <div className="flex flex-col gap-2">
+      <Link size="large" label="large" />
+      <Link size="medium" label="medium" />
+      <Link size="small" label="small" />
+    </div>
+  ),
 }
 
 export const Icon: Story = {
   name: 'Icon',
-  render: () => <div className="flex gap-4">{icons.map((icon) => <Link key={icon} icon={icon} label={icon} />)}</div>,
+  render: () => (
+    <div className="flex gap-4">
+      <Link icon="none" label="none" />
+      <Link icon="left" label="left" />
+      <Link icon="right" label="right" />
+    </div>
+  ),
 }
 
 export const Weight: Story = {

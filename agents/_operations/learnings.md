@@ -237,3 +237,33 @@ The **`figma-sync`** agent reads this file at the start of a run and appends **d
 **Components synced:** None.
 
 **Components skipped (no diff):** `Foundations/Variables`, `Foundations/Theme`, `Button`, `Link`, `IconButton`, `StackedButton`, `LoginButton`, `Dropdown`.
+
+### 2026-04-01 — figma-sync (full MCP verification pass)
+
+**Active target:** React + Storybook (`app/`), Vite.
+
+**Client:** `sample` — `fileKey` `h7IRa1i2N5ucusuhqIhCTJ`, nodes sampled:
+- Buttons frame: `138:3677`
+- Button default: `138:4113`
+- Link default: `139:64710`
+- IconButton default: `138:4310`
+- StackedButton default: `138:4248`
+- LoginButton default: `138:4299`
+- TextField (forms): `138:1644`
+
+**Readiness:** READY — sampled frames/components use named variants and token-backed design values suitable for sync.
+
+**Step 2 — tokens and variables:** Pulled `get_variable_defs` for `138:3677` (buttons family) and `138:1644` (textfield). Existing canonical + role-token mapping in `index.css` / `variableManifest.ts` remains compatible with sampled definitions; no additional token additions required for this pass.
+
+**Diffing result:** No material design drift against current implementation direction for sampled nodes. Property-based component slot standard remains intact after comparison.
+
+**Components synced:** None (no diff).
+
+**Components skipped (no diff):** `Button`, `Link`, `IconButton`, `StackedButton`, `LoginButton`, `TextField`, `Dropdown` (hidden stories), `Foundations/Variables`.
+
+**Validation (from `app/`):**
+- `npm run typecheck` ✅
+- `npm run lint:tokens` ✅
+- `npm run build-storybook` ✅
+
+**Proposed rules:** No additional proposals in this pass beyond existing pending review entries.

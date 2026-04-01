@@ -49,17 +49,11 @@ const horizontalPaddingClasses: Record<ButtonSize, Record<ButtonIconPosition, st
 
 const styleClasses: Record<ButtonStyle, string> = {
   solid:
-    'bg-[var(--color-ui-action)] text-[var(--color-neutral-white)] border-[var(--color-ui-action)] ' +
-    'hover:shadow-[var(--shadow-button)] active:shadow-[var(--shadow-button)] ' +
-    'disabled:hover:shadow-none disabled:hover:bg-[var(--color-ui-action)] disabled:hover:border-[var(--color-ui-action)]',
-  white: 'bg-[var(--color-neutral-white)] text-[var(--color-text-link)] border-transparent hover:bg-[var(--color-control-hover)] disabled:hover:bg-[var(--color-neutral-white)]',
-  outline: 'bg-transparent text-[var(--color-ui-action)] border-[var(--color-ui-action)] hover:bg-[var(--color-action-tint)] disabled:hover:bg-transparent',
-}
-
-const hoverStateClasses: Record<ButtonStyle, string> = {
-  solid: 'shadow-[var(--shadow-button)]',
-  white: 'bg-[var(--color-control-hover)]',
-  outline: 'bg-[var(--color-action-tint)]',
+    '[--color-button-bg:var(--color-button-solid-bg)] [--color-button-text:var(--color-button-solid-text)] [--color-button-border:var(--color-button-solid-border)] [--color-button-hover-bg:var(--color-button-solid-bg)] [--color-button-hover-border:var(--color-button-solid-border)] [--shadow-button-hover:var(--shadow-button-solid-hover)]',
+  white:
+    '[--color-button-bg:var(--color-button-white-bg)] [--color-button-text:var(--color-button-white-text)] [--color-button-border:transparent] [--color-button-hover-bg:var(--color-button-white-hover-bg)] [--color-button-hover-border:transparent] [--shadow-button-hover:none]',
+  outline:
+    '[--color-button-bg:transparent] [--color-button-text:var(--color-button-outline-text)] [--color-button-border:var(--color-button-outline-border)] [--color-button-hover-bg:var(--color-button-outline-hover-bg)] [--color-button-hover-border:var(--color-button-outline-border)] [--shadow-button-hover:none]',
 }
 
 const contentGapClasses: Record<ButtonSize, string> = {
@@ -98,11 +92,15 @@ export function Button({
       type="button"
       className={[
         'inline-flex items-center justify-center font-bold border transition-all duration-150 cursor-pointer',
-        'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[4px] focus-visible:outline-[var(--color-focus-ring)]',
+        'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[4px] focus-visible:outline-[var(--color-button-focus-ring)]',
+        'bg-[var(--color-button-bg)] text-[var(--color-button-text)] border-[var(--color-button-border)]',
+        'hover:bg-[var(--color-button-hover-bg)] hover:border-[var(--color-button-hover-border)] hover:shadow-[var(--shadow-button-hover)]',
+        'active:shadow-[var(--shadow-button-hover)]',
+        'disabled:hover:bg-[var(--color-button-bg)] disabled:hover:border-[var(--color-button-border)] disabled:hover:shadow-none',
         sizeBaseClasses[size],
         horizontalPaddingClasses[size][icon],
         styleClasses[style],
-        resolvedState === 'hover' && hoverStateClasses[style],
+        resolvedState === 'hover' && 'bg-[var(--color-button-hover-bg)] border-[var(--color-button-hover-border)] shadow-[var(--shadow-button-hover)]',
         isDisabled && 'opacity-50 cursor-not-allowed',
         isLoading && 'relative',
         className,

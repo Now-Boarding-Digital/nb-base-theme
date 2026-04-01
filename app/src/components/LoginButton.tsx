@@ -20,10 +20,14 @@ const providerLabels: Record<LoginButtonProvider, string> = {
 };
 
 const providerClasses: Record<LoginButtonProvider, string> = {
-  google: 'bg-[var(--color-neutral-white)] text-[var(--color-neutral-gray-700)] border-[var(--color-neutral-gray-300)] hover:bg-[var(--color-neutral-gray-50)] hover:border-[var(--color-neutral-gray-400)] disabled:hover:bg-[var(--color-neutral-white)] disabled:hover:border-[var(--color-neutral-gray-300)]',
-  apple: 'bg-[var(--color-neutral-gray-800)] text-[var(--color-neutral-white)] border-[var(--color-neutral-gray-800)] hover:bg-[var(--color-neutral-gray-700)] hover:border-[var(--color-neutral-gray-700)] disabled:hover:bg-[var(--color-neutral-gray-800)] disabled:hover:border-[var(--color-neutral-gray-800)]',
-  facebook: 'bg-[var(--color-neutral-gray-800)] text-[var(--color-neutral-white)] border-[var(--color-neutral-gray-800)] hover:bg-[var(--color-neutral-gray-700)] hover:border-[var(--color-neutral-gray-700)] disabled:hover:bg-[var(--color-neutral-gray-800)] disabled:hover:border-[var(--color-neutral-gray-800)]',
-  default: 'bg-[var(--color-ui-action)] text-[var(--color-neutral-white)] border-[var(--color-ui-action)] hover:bg-[var(--color-ui-action-hover)] hover:border-[var(--color-ui-action-hover)] disabled:hover:bg-[var(--color-ui-action)] disabled:hover:border-[var(--color-ui-action)]',
+  google:
+    '[--color-login-bg:var(--color-login-google-bg)] [--color-login-text:var(--color-login-google-text)] [--color-login-border:var(--color-login-google-border)] [--color-login-hover-bg:var(--color-login-google-hover-bg)] [--color-login-hover-border:var(--color-login-google-hover-border)]',
+  apple:
+    '[--color-login-bg:var(--color-login-apple-bg)] [--color-login-text:var(--color-login-apple-text)] [--color-login-border:var(--color-login-apple-border)] [--color-login-hover-bg:var(--color-login-apple-hover-bg)] [--color-login-hover-border:var(--color-login-apple-hover-border)]',
+  facebook:
+    '[--color-login-bg:var(--color-login-facebook-bg)] [--color-login-text:var(--color-login-facebook-text)] [--color-login-border:var(--color-login-facebook-border)] [--color-login-hover-bg:var(--color-login-facebook-hover-bg)] [--color-login-hover-border:var(--color-login-facebook-hover-border)]',
+  default:
+    '[--color-login-bg:var(--color-login-default-bg)] [--color-login-text:var(--color-login-default-text)] [--color-login-border:var(--color-login-default-border)] [--color-login-hover-bg:var(--color-login-default-hover-bg)] [--color-login-hover-border:var(--color-login-default-hover-border)]',
 };
 
 const GoogleIcon = () => (
@@ -73,6 +77,9 @@ export function LoginButton({
       type="button"
       className={[
         'w-full max-w-[398px] min-w-[280px] h-14 px-6 flex items-center justify-center gap-3 font-bold text-base leading-6 rounded-[var(--radius-control-large)] border cursor-pointer transition-all duration-150 disabled:opacity-50 disabled:cursor-not-allowed',
+        'bg-[var(--color-login-bg)] text-[var(--color-login-text)] border-[var(--color-login-border)]',
+        'hover:bg-[var(--color-login-hover-bg)] hover:border-[var(--color-login-hover-border)]',
+        'disabled:hover:bg-[var(--color-login-bg)] disabled:hover:border-[var(--color-login-border)]',
         providerClasses[provider],
         className,
       ].filter(Boolean).join(' ')}

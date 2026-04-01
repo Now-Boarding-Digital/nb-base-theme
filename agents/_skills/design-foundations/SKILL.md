@@ -19,11 +19,12 @@ description: Cross-target design principles (tokens, component model, a11y outco
 
 1. Read **`references/FOUNDATIONS.md`** — framework-agnostic rules.
 2. Optionally skim **`references/DESIGN_SYSTEM_GUIDELINES.md`** for how this repo splits foundations vs per-stack docs.
-3. When working in the **buttons / controls** area (buttons, links, icon buttons, stacked, login, dropdown triggers), read **`references/BUTTONS_SPEC.md`** — sizes, styles, states matrix.
+3. Read **`references/COMPONENT_VARIATION_CHECKLIST.md`** and complete it before any component/stories implementation work. Treat this as a pre-build gate.
+4. When working in the **buttons / controls** area (buttons, links, icon buttons, stacked, login, dropdown triggers), read **`references/BUTTONS_SPEC.md`** — sizes, styles, states matrix.
 
 ## Repo references
 
-- **`references/FOUNDATIONS.md`**, **`references/DESIGN_SYSTEM_GUIDELINES.md`**, **`references/BUTTONS_SPEC.md`**
+- **`references/FOUNDATIONS.md`**, **`references/DESIGN_SYSTEM_GUIDELINES.md`**, **`references/COMPONENT_VARIATION_CHECKLIST.md`**, **`references/BUTTONS_SPEC.md`**
 - Stack-specific detail: sibling skills (e.g. **`../design-react-tailwind/references/react-tailwind.md`**).
 
 ## Do not

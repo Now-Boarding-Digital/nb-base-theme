@@ -56,8 +56,28 @@ export const Playground: Story = {
   render: (args) => <IconButton {...args} />,
 }
 
-export const Styles: Story = { name: 'Styles', render: () => <div className="flex gap-3">{styles.map((s) => <IconButton key={s} aria-label={s} style={s} />)}</div> }
-export const Sizes: Story = { name: 'Sizes', render: () => <div className="flex items-end gap-3">{sizes.map((s) => <IconButton key={s} aria-label={s} size={s} />)}</div> }
+export const Styles: Story = {
+  name: 'Styles',
+  render: () => (
+    <div className="flex gap-3">
+      <IconButton aria-label="solid" style="solid" />
+      <IconButton aria-label="outline" style="outline" />
+      <IconButton aria-label="transparent" style="transparent" />
+      <IconButton aria-label="white" style="white" />
+    </div>
+  ),
+}
+
+export const Sizes: Story = {
+  name: 'Sizes',
+  render: () => (
+    <div className="flex items-end gap-3">
+      <IconButton aria-label="large" size="large" />
+      <IconButton aria-label="medium" size="medium" />
+      <IconButton aria-label="small" size="small" />
+    </div>
+  ),
+}
 export const State: Story = {
   name: 'State',
   render: () => (

@@ -1,4 +1,4 @@
-import { VARIABLE_COLLECTIONS } from './variableManifest'
+import { COMPONENT_ROLE_MAPPINGS, VARIABLE_COLLECTIONS } from './variableManifest'
 
 function readVar(name: string): string {
   if (typeof document === 'undefined') return ''
@@ -66,6 +66,17 @@ export function VariablesCatalog() {
   const darkReady = rows.filter((row) => Boolean(row.darkValue)).length
   const mappedPct = total > 0 ? Math.round((mapped / total) * 100) : 0
   const darkPct = total > 0 ? Math.round((darkReady / total) * 100) : 0
+  const figmaSourcesByCanonical = rows.reduce<Record<string, string[]>>((acc, row) => {
+    if (!row.mappedToken) return acc
+    if (!acc[row.mappedToken]) acc[row.mappedToken] = []
+    acc[row.mappedToken].push(row.figmaName)
+    return acc
+  }, {})
+  const groupedRoleMappings = COMPONENT_ROLE_MAPPINGS.reduce<Record<string, typeof COMPONENT_ROLE_MAPPINGS>>((acc, mapping) => {
+    if (!acc[mapping.component]) acc[mapping.component] = []
+    acc[mapping.component].push(mapping)
+    return acc
+  }, {})
 
   return (
     <div className="max-w-5xl space-y-10 text-left font-sans text-[var(--color-neutral-gray-800)]">
@@ -87,6 +98,57 @@ export function VariablesCatalog() {
           </span>
         </div>
       </header>
+
+      <section className="space-y-4">
+        <h2 className="text-xs font-bold uppercase tracking-wider text-[var(--color-neutral-gray-400)]">Component Mapping Trace</h2>
+        <p className="text-sm leading-relaxed text-[var(--color-neutral-gray-700)]">
+          Shows the full chain used by components: <strong>Figma variable -&gt; Canonical token -&gt; Component role token</strong>.
+        </p>
+        {Object.entries(groupedRoleMappings).map(([component, mappings]) => (
+          <div key={component} className="overflow-hidden rounded-[var(--radius-control-medium)] border border-[var(--color-neutral-gray-200)] bg-[var(--color-neutral-white)]">
+            <div className="border-b border-[var(--color-neutral-gray-200)] bg-[var(--color-neutral-gray-50)] px-4 py-2 text-sm font-semibold text-[var(--color-neutral-gray-700)]">
+              {component}
+            </div>
+            <table className="w-full border-collapse text-sm">
+              <thead>
+                <tr className="border-b border-[var(--color-neutral-gray-200)] bg-[var(--color-neutral-gray-50)] text-left text-xs text-[var(--color-neutral-gray-700)]">
+                  <th className="px-4 py-2 font-semibold">Component Role Token</th>
+                  <th className="px-4 py-2 font-semibold">Canonical Token</th>
+                  <th className="px-4 py-2 font-semibold">Figma Variable(s)</th>
+                </tr>
+              </thead>
+              <tbody>
+                {mappings.map((mapping) => {
+                  const figmaSources = figmaSourcesByCanonical[mapping.canonicalToken] ?? []
+                  return (
+                    <tr key={`${mapping.component}-${mapping.roleToken}`} className="border-b border-[var(--color-neutral-gray-100)] last:border-0">
+                      <td className="px-4 py-3 align-top">
+                        <code className="text-xs text-[var(--color-ui-action)]">{mapping.roleToken}</code>
+                      </td>
+                      <td className="px-4 py-3 align-top">
+                        <code className="text-xs text-[var(--color-neutral-gray-800)]">{mapping.canonicalToken}</code>
+                      </td>
+                      <td className="px-4 py-3 align-top">
+                        {figmaSources.length > 0 ? (
+                          <div className="flex flex-wrap gap-1">
+                            {figmaSources.map((name) => (
+                              <code key={`${mapping.roleToken}-${name}`} className="rounded bg-[var(--color-neutral-gray-100)] px-1 py-0.5 text-xs text-[var(--color-neutral-gray-700)]">
+                                {name}
+                              </code>
+                            ))}
+                          </div>
+                        ) : (
+                          <span className="text-xs text-[var(--color-neutral-gray-500)]">No mapped Figma source</span>
+                        )}
+                      </td>
+                    </tr>
+                  )
+                })}
+              </tbody>
+            </table>
+          </div>
+        ))}
+      </section>
 
       {VARIABLE_COLLECTIONS.map((collection) => (
         <section key={collection.title} className="space-y-4">

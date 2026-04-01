@@ -52,7 +52,17 @@ export const Playground: Story = {
   render: (args) => <LoginButton {...args} />,
 }
 
-export const Provider: Story = { name: 'Provider', render: () => <div className="flex flex-col gap-2">{providers.map((p) => <LoginButton key={p} provider={p} />)}</div> }
+export const Provider: Story = {
+  name: 'Provider',
+  render: () => (
+    <div className="flex flex-col gap-2">
+      <LoginButton provider="google" />
+      <LoginButton provider="apple" />
+      <LoginButton provider="facebook" />
+      <LoginButton provider="default" />
+    </div>
+  ),
+}
 export const State: Story = {
   name: 'State',
   render: () => (

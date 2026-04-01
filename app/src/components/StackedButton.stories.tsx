@@ -54,7 +54,33 @@ export const Playground: Story = {
   render: (args) => <StackedButton {...args} />,
 }
 
-export const Styles: Story = { name: 'Styles', render: () => <div className="flex gap-3">{styles.map((s) => <StackedButton key={s} style={s} label={s} />)}</div> }
+export const Styles: Story = {
+  name: 'Styles',
+  render: () => (
+    <div className="flex flex-wrap gap-4">
+      <div className="flex flex-col items-center gap-2">
+        <StackedButton style="solid" label="Label" />
+        <span className="text-xs text-[var(--color-neutral-gray-600)]">solid</span>
+      </div>
+      <div className="flex flex-col items-center gap-2">
+        <StackedButton style="outline-grey" label="Label" />
+        <span className="text-xs text-[var(--color-neutral-gray-600)]">outline-grey</span>
+      </div>
+      <div className="flex flex-col items-center gap-2">
+        <StackedButton style="grey" label="Label" />
+        <span className="text-xs text-[var(--color-neutral-gray-600)]">grey</span>
+      </div>
+      <div className="flex flex-col items-center gap-2">
+        <StackedButton style="transparent" label="Label" />
+        <span className="text-xs text-[var(--color-neutral-gray-600)]">transparent</span>
+      </div>
+      <div className="flex flex-col items-center gap-2">
+        <StackedButton style="white" label="Label" />
+        <span className="text-xs text-[var(--color-neutral-gray-600)]">white</span>
+      </div>
+    </div>
+  ),
+}
 export const State: Story = {
   name: 'State',
   render: () => (

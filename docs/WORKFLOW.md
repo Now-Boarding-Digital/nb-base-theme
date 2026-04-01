@@ -18,9 +18,12 @@ Someone with the toolchain (engineer or agent in **GitHub Codespaces** or locall
 
 1. Connects Figma MCP if needed.
 2. Establishes the project token baseline from the Figma Variables table first (token-first / DRY setup).
-3. Runs the sync workflow (see [`README.md`](../README.md) and [`agents/figma-sync/.agent.md`](../agents/figma-sync/.agent.md) — @‑mention that file in Claude Code as needed).
-4. The agent follows [`agents/figma-sync/.agent.md`](../agents/figma-sync/.agent.md) — universal steps + **Active target** (stack-specific: stories, file layout, validation).
-5. Output lands in that target’s **output root** — **this checkout** starts with **React + Storybook** under **`app/`**; other targets will use other roots when you add them.
+3. Defines a **Variation Matrix First** checklist per component family before writing code: capture every Figma behavior control/value, map to code axes, and pre-plan Storybook coverage (playground + focused axis stories + `All Combinations`).
+4. Maintains traceability via the token mapping chain: Figma variables -> canonical tokens (`variableManifest.ts`) -> component role tokens (`index.css`) -> component usage (`app/src/components/*.tsx`).
+5. Validates token discipline with `npm run lint:tokens` (fallback-token check + role-token contract check) before sign-off.
+6. Runs the sync workflow (see [`README.md`](../README.md) and [`agents/figma-sync/.agent.md`](../agents/figma-sync/.agent.md) — @‑mention that file in Claude Code as needed).
+7. The agent follows [`agents/figma-sync/.agent.md`](../agents/figma-sync/.agent.md) — universal steps + **Active target** (stack-specific: stories, file layout, validation).
+8. Output lands in that target’s **output root** — **this checkout** starts with **React + Storybook** under **`app/`**; other targets will use other roots when you add them.
 
 So: **Figma data in → generated style guide / Storybook-shaped code out** (shape depends on the target you use).
 
