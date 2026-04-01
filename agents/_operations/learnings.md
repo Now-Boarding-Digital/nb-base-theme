@@ -92,3 +92,148 @@ The **`figma-sync`** agent reads this file at the start of a run and appends **d
 **What failed and why:** Existing running Storybook process started before stories were regenerated and initially logged “No story files found.” Restart Storybook to refresh discovery if stories do not appear immediately.
 
 **Proposed rules:** None (run followed current canonical `figma-sync` + Buttons spec updates).
+
+### 2026-03-31 — figma-sync (control story coverage pass)
+
+**Active target:** React + Storybook (`app/`), Vite.
+
+**Client:** `sample` — `fileKey` `h7IRa1i2N5ucusuhqIhCTJ`, `buttonsFrame` `138:3677`.
+
+**Readiness:** READY — metadata for `138:3677` confirms named variant sets across Buttons, Links, Icon Buttons, Stacked Buttons, Login Buttons, and Dropdown Buttons.
+
+**Step 2 — tokens:** `get_variable_defs` (`138:3677`) returned the expected token families (action, text, radius, shadow, opacity, control stroke). No token-file edits required for this pass.
+
+**Components synced:** Story artifacts regenerated to satisfy required control coverage:
+- `app/src/components/IconButton.stories.tsx`
+- `app/src/components/StackedButton.stories.tsx`
+- `app/src/components/LoginButton.stories.tsx`
+- `app/src/components/Dropdown.stories.tsx`
+
+**Story structure applied:** Canonical named-story order restored per control:
+- `IconButton`: `Styles` → `Sizes` → `State` → `All Combinations`
+- `StackedButton`: `Styles` → `State` → `All Combinations`
+- `LoginButton`: `Provider` → `State` → `All Combinations`
+- `Dropdown`: `Sizes` → `Variant` → `State` → `All Combinations`
+
+**Components skipped (no TSX diff):** `IconButton.tsx`, `StackedButton.tsx`, `LoginButton.tsx`, `Dropdown.tsx` (implementation already aligned for this run).
+
+**Validation:** IDE lint check passed for the four regenerated story files. Runtime checks (`npm run typecheck`, `npm test`, `npm run build-storybook`) still need to run in a Node-enabled shell.
+
+**Proposed rules:** None.
+
+### 2026-03-31 — figma-sync (token-first verification run)
+
+**Active target:** React + Storybook (`app/`), Vite.
+
+**Client:** `sample` — `fileKey` `h7IRa1i2N5ucusuhqIhCTJ`, `buttonsFrame` `138:3677`.
+
+**Readiness:** READY — metadata still shows complete variant coverage and named state matrices across control families.
+
+**Step 2 — tokens:** `get_variable_defs` (`138:3677`) returned the same variable families used by current components (`UI/Action`, `Text/Link`, radius, shadows, opacity, field stroke). Token-first mapping remains intact for this checkout; no token changes needed.
+
+**Diffing result:** No material design drift detected from sampled design context (`138:4113`) vs current artifacts.
+
+**Components synced:** None.
+
+**Components skipped (no diff):** `Button`, `Link`, `IconButton`, `StackedButton`, `LoginButton`, `Dropdown` stories and TSX modules.
+
+**Validation:** Runtime commands still require a Node-enabled shell (`app/`: `npm run typecheck`, `npm test`, `npm run build-storybook`).
+
+**Proposed rules:** None.
+
+### 2026-03-31 — variables catalog automation wiring
+
+**Goal:** Keep Storybook Variables docs synced from Figma variable defs during figma-sync runs.
+
+**Changes made:**
+- Added `app/src/foundations/variableManifest.ts` generation-friendly structure with:
+  - latest `get_variable_defs` seed map,
+  - Figma-to-token mapping table,
+  - automatic collection classification (`Brand`, `System Colors`, `Theme`, `Responsive`, `Base Sizes`).
+- Added `Foundations/Variables` docs surface (`VariablesCatalog.tsx`, `Variables.stories.tsx`).
+- Updated `agents/figma-sync/.agent.md` Step 2 + Active target to require refreshing `variableManifest.ts` before component generation.
+
+**Outcome:** Designers can review variable inventory and mapping status directly in Storybook; future sync runs now include manifest refresh as a required token-first step.
+
+### 2026-03-31 — figma-sync (no-diff run)
+
+**Active target:** React + Storybook (`app/`), Vite.
+
+**Client:** `sample` — `fileKey` `h7IRa1i2N5ucusuhqIhCTJ`, `buttonsFrame` `138:3677`.
+
+**Readiness:** READY — control families and variant/state naming remain complete at source frame level.
+
+**Step 2 — tokens and variables:** `get_variable_defs` (`138:3677`) returned the same definitions used by current token mapping and `variableManifest.ts`. No token or variable catalog updates required this run.
+
+**Diffing result:** Sampled design context (`138:4113`) matches current component direction. No component/story regeneration needed.
+
+**Components synced:** None.
+
+**Components skipped (no diff):** `Foundations/Variables`, `Foundations/Theme`, `Button`, `Link`, `IconButton`, `StackedButton`, `LoginButton`, `Dropdown`.
+
+### 2026-03-31 — figma-sync (docs-surface + validation pass)
+
+**Active target:** React + Storybook (`app/`), Vite.
+
+**Client:** `sample` — `fileKey` `h7IRa1i2N5ucusuhqIhCTJ`, `buttonsFrame` `138:3677`.
+
+**Readiness:** READY — frame metadata still shows complete variant/state sets with named controls for Buttons and related families.
+
+**Step 2 — tokens and variables:** `get_variable_defs` (`138:3677`) returned the same token families already mapped in `index.css` and `variableManifest.ts`. No token changes were required this run.
+
+**Components synced:** `Button` docs/stories only:
+- retained focused docs page (`Title`, `Description`, `Primary`, `Controls`, `Examples`) while keeping `All Combinations` out of Docs.
+- improved per-cell implementation discoverability in `All Combinations` using inline show/hide code disclosure.
+- hid the docs `Control` column globally in `app/.storybook/preview.css` for library-facing docs readability.
+
+**What failed and why:** Initial validation failed due to a Storybook docs import path mismatch (`@storybook/blocks` not present in this setup). Fixed by switching to `@storybook/addon-docs/blocks`.
+
+**Validation (from `app/`):** Passed `npm run typecheck`, `npm test`, and `npm run build-storybook`.
+
+**Proposed rules:** None.
+
+### 2026-03-31 — figma-sync (post-Theme-removal check)
+
+**Active target:** React + Storybook (`app/`), Vite.
+
+**Client:** `sample` — `fileKey` `h7IRa1i2N5ucusuhqIhCTJ`, `buttonsFrame` `138:3677`.
+
+**Readiness:** READY — control families and variant/state naming remain stable.
+
+**Step 2 — tokens and variables:** `get_variable_defs` (`138:3677`) returned the expected variable set used by the current Variables-only foundations surface. No new token or manifest updates needed.
+
+**Diffing result:** Sampled design context (`138:4113`) shows no drift vs current implementation.
+
+**Components synced:** None.
+
+**Components skipped (no diff):** `Foundations/Variables`, `Button`, `Link`, `IconButton`, `StackedButton`, `LoginButton`, `Dropdown`.
+
+### 2026-03-31 — figma-sync (post-story-restore verification)
+
+**Active target:** React + Storybook (`app/`), Vite.
+
+**Client:** `sample` — `fileKey` `h7IRa1i2N5ucusuhqIhCTJ`, `buttonsFrame` `138:3677`.
+
+**Readiness:** READY — frame metadata still contains all expected control families and named variants.
+
+**Step 2 — tokens and variables:** Variable defs unchanged vs prior run; token-first mapping remains consistent.
+
+**Stories check:** Required story files present at run start: `Foundations/Variables`, `Button`, `Link`, `IconButton`, `StackedButton`, `LoginButton`, `Dropdown`.
+
+**Diffing result:** No material design drift from sampled design context (`138:4113`) and no additional regeneration required.
+
+### 2026-03-31 — figma-sync (mode-ready variables check)
+
+**Active target:** React + Storybook (`app/`), Vite.
+
+**Client:** `sample` — `fileKey` `h7IRa1i2N5ucusuhqIhCTJ`, `buttonsFrame` `138:3677`.
+
+**Readiness:** READY — variant/state sets remain stable across control families.
+
+**Step 2 — tokens and variables:** Variable defs returned successfully for the sync node and match current mode-ready variable manifest inputs. MCP still returns single-value defs for this node (no explicit dark-mode values in payload), so no additional dark-value rows were populated this run.
+
+**Diffing result:** No material drift in sampled design context (`138:4113`) vs current code/story outputs.
+
+**Components synced:** None.
+
+**Components skipped (no diff):** `Foundations/Variables`, `Foundations/Theme`, `Button`, `Link`, `IconButton`, `StackedButton`, `LoginButton`, `Dropdown`.

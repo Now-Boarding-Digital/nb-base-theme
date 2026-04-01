@@ -21,3 +21,19 @@
 ---
 
 <!-- Agent appends PENDING REVIEW blocks below -->
+
+## 2026-03-31 — proposed after run
+
+**Problem:** Sync runs can finish with partial story regeneration, inconsistent state naming from Figma variants, and uneven coverage across control components. This increases regression risk before packaging.
+
+**Proposed addition to (Active target — React + Storybook):**
+> When stories are cleared or missing, regenerate the required controls surface before ending the run: `Foundations/Theme`, `Button`, `Link`, `IconButton`, `StackedButton`, `LoginButton`, `Dropdown`.  
+>  
+> Enforce a minimum artifact checklist per synced component family: component module, story module with canonical order, a11y baseline, and explicit synced/skipped/blocked report entry.  
+>  
+> Normalize Figma state labels to code-facing enums (`Default`, `Hover`, `Disabled`, `Loading`, `Pressed/Active`, `Focused/Focussed`) and document any unimplemented states rather than silently dropping them.  
+>  
+> Keep token-first enforcement strict: do not introduce new raw color literals in component code when a token exists; document any unavoidable literals and propose token follow-up.
+
+**Status:** PENDING REVIEW
+---

@@ -21,7 +21,7 @@ const styleClasses: Record<StackedButtonStyle, string> = {
   'outline-grey': 'bg-transparent text-[var(--color-neutral-gray-700)] border-[var(--color-neutral-gray-300)] hover:bg-[var(--color-neutral-gray-100)] hover:border-[var(--color-neutral-gray-400)] disabled:hover:bg-transparent disabled:hover:border-[var(--color-neutral-gray-300)]',
   grey: 'bg-[var(--color-neutral-gray-100)] text-[var(--color-neutral-gray-700)] border-[var(--color-neutral-gray-100)] hover:bg-[var(--color-neutral-gray-200)] hover:border-[var(--color-neutral-gray-200)] disabled:hover:bg-[var(--color-neutral-gray-100)] disabled:hover:border-[var(--color-neutral-gray-100)]',
   transparent: 'bg-transparent text-[var(--color-ui-action)] border-transparent hover:bg-[var(--color-action-tint)] disabled:hover:bg-transparent',
-  white: 'bg-[var(--color-neutral-white)] text-[var(--color-text-link)] border-[var(--color-neutral-white)] hover:bg-[#e8f2ff] hover:border-[#e8f2ff] disabled:hover:bg-[var(--color-neutral-white)] disabled:hover:border-[var(--color-neutral-white)]',
+  white: 'bg-[var(--color-neutral-white)] text-[var(--color-text-link)] border-[var(--color-neutral-white)] hover:bg-[var(--color-control-hover)] hover:border-[var(--color-control-hover)] disabled:hover:bg-[var(--color-neutral-white)] disabled:hover:border-[var(--color-neutral-white)]',
 };
 
 export function StackedButton({

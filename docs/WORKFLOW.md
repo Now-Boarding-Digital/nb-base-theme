@@ -17,9 +17,10 @@ Design lives in Figma. The pipeline **reads** it (via Figma MCP from Cursor or C
 Someone with the toolchain (engineer or agent in **GitHub Codespaces** or locally):
 
 1. Connects Figma MCP if needed.
-2. Runs the sync workflow (see [`README.md`](../README.md) and [`agents/figma-sync/.agent.md`](../agents/figma-sync/.agent.md) — @‑mention that file in Claude Code as needed).
-3. The agent follows [`agents/figma-sync/.agent.md`](../agents/figma-sync/.agent.md) — universal steps + **Active target** (stack-specific: stories, file layout, validation).
-4. Output lands in that target’s **output root** — **this checkout** starts with **React + Storybook** under **`app/`**; other targets will use other roots when you add them.
+2. Establishes the project token baseline from the Figma Variables table first (token-first / DRY setup).
+3. Runs the sync workflow (see [`README.md`](../README.md) and [`agents/figma-sync/.agent.md`](../agents/figma-sync/.agent.md) — @‑mention that file in Claude Code as needed).
+4. The agent follows [`agents/figma-sync/.agent.md`](../agents/figma-sync/.agent.md) — universal steps + **Active target** (stack-specific: stories, file layout, validation).
+5. Output lands in that target’s **output root** — **this checkout** starts with **React + Storybook** under **`app/`**; other targets will use other roots when you add them.
 
 So: **Figma data in → generated style guide / Storybook-shaped code out** (shape depends on the target you use).
 

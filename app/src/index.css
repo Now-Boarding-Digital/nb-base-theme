@@ -3,10 +3,18 @@
 /* Design tokens - Now Boarding Design System Kit */
 @theme {
   --color-ui-action: #006fff;
+  --color-action-light: #3d91ff;
   /* Kept for non–Figma-solid patterns; solid hover uses --shadow-button + same fill per kit */
   --color-ui-action-hover: #0052cc;
   --color-text-link: #0c65d9;
+  --color-text-reversed: #ffffff;
   --color-neutral-white: #ffffff;
+  --color-background-default: #ffffff;
+  --color-background-reversed: #020617;
+  --color-ui-card: #ffffff;
+  --color-ui-hint-icon: #6e7f97;
+  --color-semantic-purple-default: #8e51ff;
+  --color-social-facebook: #1877f2;
   --color-neutral-gray-50: #f9fafb;
   --color-neutral-gray-100: #f3f4f6;
   --color-neutral-gray-200: #e5e7eb;
@@ -14,6 +22,7 @@
   --color-neutral-gray-400: #9ca3af;
   --color-neutral-gray-700: #374151;
   --color-neutral-gray-800: #1f2937;
+  --color-control-hover: #f1f5f9;
   --color-action-tint: rgba(0, 111, 255, 0.08);
   --color-action-outline: rgba(0, 111, 255, 0.2);
   /* Focus ring (Buttons “Focussed” in Figma — text/primary stroke) */
@@ -22,11 +31,28 @@
   --radius-control-medium: 8px;
   /* Figma: Radius/Control Small → 4 */
   --radius-control-small: 4px;
+  --radius-dropdown: 8px;
+  --radius-icon-buttons: 100px;
+  --opacity-disabled: 0.5;
+  --opacity-hover: 0.06;
+  --opacity-active: 0.12;
   /* Figma: Shadows/Button — solid hover / pressed */
   --shadow-button:
     0 2px 4px -2px rgba(0, 0, 0, 0.06),
     0 4px 8px -2px rgba(0, 0, 0, 0.1);
+  --shadow-dropdown-button: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-dropdown:
+    0 4px 6px -2px rgba(0, 0, 0, 0.03),
+    0 12px 16px -4px rgba(0, 0, 0, 0.08);
   --font-primary: 'Inter', system-ui, sans-serif;
+  --font-weight-default: 400;
+  --font-weight-bold: 700;
+  --text-content-base: 400 16px / 24px var(--font-primary);
+  --text-content-base-bold: 700 16px / 24px var(--font-primary);
+  --text-content-small: 400 14px / 20px var(--font-primary);
+  --text-content-small-bold: 700 14px / 20px var(--font-primary);
+  --text-content-xsmall: 400 12px / 16px var(--font-primary);
+  --text-content-xsmall-bold: 700 12px / 16px var(--font-primary);
   --animate-btn-spin: btn-spin 0.6s linear infinite;
 
   @keyframes btn-spin {

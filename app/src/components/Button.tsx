@@ -23,10 +23,28 @@ export interface ButtonProps {
   onClick?: () => void;
 }
 
-const sizeClasses: Record<ButtonSize, string> = {
-  large: 'min-w-32 px-8 py-4 rounded-[var(--radius-control-large)] text-base leading-6',
-  medium: 'min-w-16 px-6 py-2.5 rounded-[var(--radius-control-medium)] text-sm leading-5',
-  small: 'min-w-16 px-4 py-2 rounded-[var(--radius-control-small)] text-xs leading-4',
+const sizeBaseClasses: Record<ButtonSize, string> = {
+  large: 'py-4 rounded-[var(--radius-control-large)] text-base leading-6',
+  medium: 'py-2.5 rounded-[var(--radius-control-medium)] text-sm leading-5',
+  small: 'py-2 rounded-[var(--radius-control-small)] text-xs leading-4',
+}
+
+const horizontalPaddingClasses: Record<ButtonSize, Record<ButtonIconPosition, string>> = {
+  large: {
+    none: 'px-8',
+    left: 'pl-6 pr-8',
+    right: 'pl-8 pr-6',
+  },
+  medium: {
+    none: 'px-6',
+    left: 'pl-4 pr-6',
+    right: 'pl-6 pr-4',
+  },
+  small: {
+    none: 'px-3',
+    left: 'pl-3 pr-4',
+    right: 'pl-4 pr-3',
+  },
 }
 
 const styleClasses: Record<ButtonStyle, string> = {
@@ -34,14 +52,26 @@ const styleClasses: Record<ButtonStyle, string> = {
     'bg-[var(--color-ui-action)] text-[var(--color-neutral-white)] border-[var(--color-ui-action)] ' +
     'hover:shadow-[var(--shadow-button)] active:shadow-[var(--shadow-button)] ' +
     'disabled:hover:shadow-none disabled:hover:bg-[var(--color-ui-action)] disabled:hover:border-[var(--color-ui-action)]',
-  white: 'bg-[var(--color-neutral-white)] text-[var(--color-text-link)] border-transparent hover:bg-[#e8f2ff] disabled:hover:bg-[var(--color-neutral-white)]',
+  white: 'bg-[var(--color-neutral-white)] text-[var(--color-text-link)] border-transparent hover:bg-[var(--color-control-hover)] disabled:hover:bg-[var(--color-neutral-white)]',
   outline: 'bg-transparent text-[var(--color-ui-action)] border-[var(--color-ui-action)] hover:bg-[var(--color-action-tint)] disabled:hover:bg-transparent',
 }
 
 const hoverStateClasses: Record<ButtonStyle, string> = {
   solid: 'shadow-[var(--shadow-button)]',
-  white: 'bg-[#e8f2ff]',
+  white: 'bg-[var(--color-control-hover)]',
   outline: 'bg-[var(--color-action-tint)]',
+}
+
+const contentGapClasses: Record<ButtonSize, string> = {
+  large: 'gap-2',
+  medium: 'gap-2',
+  small: 'gap-1.5',
+}
+
+const iconSizeClasses: Record<ButtonSize, string> = {
+  large: 'w-5 h-5',
+  medium: 'w-5 h-5',
+  small: 'w-3.5 h-3.5',
 }
 
 import { PlusIcon } from './icons'
@@ -67,9 +97,10 @@ export function Button({
     <button
       type="button"
       className={[
-        'inline-flex items-center justify-center gap-2 font-bold border transition-all duration-150 cursor-pointer',
+        'inline-flex items-center justify-center font-bold border transition-all duration-150 cursor-pointer',
         'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[4px] focus-visible:outline-[var(--color-focus-ring)]',
-        sizeClasses[size],
+        sizeBaseClasses[size],
+        horizontalPaddingClasses[size][icon],
         styleClasses[style],
         resolvedState === 'hover' && hoverStateClasses[style],
         isDisabled && 'opacity-50 cursor-not-allowed',
@@ -85,10 +116,10 @@ export function Button({
           aria-hidden
         />
       )}
-      <span className={`flex items-center justify-center gap-2 ${isLoading ? 'invisible' : ''}`}>
-        {icon === 'left' && <PlusIcon size={size} />}
+      <span className={`flex items-center justify-center ${contentGapClasses[size]} ${isLoading ? 'invisible' : ''}`}>
+        {icon === 'left' && <PlusIcon className={iconSizeClasses[size]} />}
         {children ?? labelText ?? label}
-        {icon === 'right' && <PlusIcon size={size} />}
+        {icon === 'right' && <PlusIcon className={iconSizeClasses[size]} />}
       </span>
     </button>
   );

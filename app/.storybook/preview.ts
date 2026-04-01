@@ -15,10 +15,18 @@ const preview: Preview = {
         const ra = rank(a.title)
         const rb = rank(b.title)
         if (ra !== rb) return ra - rb
+        if (a.title.startsWith('Foundations') && b.title.startsWith('Foundations')) {
+          const order = ['Foundations/Variables']
+          const ia = order.indexOf(a.title)
+          const ib = order.indexOf(b.title)
+          if (ia !== -1 && ib !== -1 && ia !== ib) return ia - ib
+          if (ia !== -1) return -1
+          if (ib !== -1) return 1
+        }
         if (a.title !== b.title) return a.title.localeCompare(b.title, undefined, { numeric: true })
 
         if (a.title === 'Design System/Button') {
-          const order = ['Styles', 'Sizes', 'Icon', 'State', 'All Combinations']
+          const order = ['Playground', 'Styles', 'Sizes', 'Icon', 'State', 'All Combinations']
           const ia = order.indexOf(a.name)
           const ib = order.indexOf(b.name)
           if (ia !== -1 && ib !== -1) return ia - ib
@@ -26,7 +34,39 @@ const preview: Preview = {
           if (ib !== -1) return 1
         }
         if (a.title === 'Design System/Link') {
-          const order = ['Sizes', 'Icon', 'Weight', 'State', 'All Combinations']
+          const order = ['Playground', 'Sizes', 'Icon', 'Weight', 'State', 'All Combinations']
+          const ia = order.indexOf(a.name)
+          const ib = order.indexOf(b.name)
+          if (ia !== -1 && ib !== -1) return ia - ib
+          if (ia !== -1) return -1
+          if (ib !== -1) return 1
+        }
+        if (a.title === 'Design System/IconButton') {
+          const order = ['Playground', 'Styles', 'Sizes', 'State', 'All Combinations']
+          const ia = order.indexOf(a.name)
+          const ib = order.indexOf(b.name)
+          if (ia !== -1 && ib !== -1) return ia - ib
+          if (ia !== -1) return -1
+          if (ib !== -1) return 1
+        }
+        if (a.title === 'Design System/StackedButton') {
+          const order = ['Playground', 'Styles', 'State', 'All Combinations']
+          const ia = order.indexOf(a.name)
+          const ib = order.indexOf(b.name)
+          if (ia !== -1 && ib !== -1) return ia - ib
+          if (ia !== -1) return -1
+          if (ib !== -1) return 1
+        }
+        if (a.title === 'Design System/LoginButton') {
+          const order = ['Playground', 'Provider', 'State', 'All Combinations']
+          const ia = order.indexOf(a.name)
+          const ib = order.indexOf(b.name)
+          if (ia !== -1 && ib !== -1) return ia - ib
+          if (ia !== -1) return -1
+          if (ib !== -1) return 1
+        }
+        if (a.title === 'Design System/Dropdown') {
+          const order = ['Playground', 'Sizes', 'Variant', 'State', 'All Combinations']
           const ia = order.indexOf(a.name)
           const ib = order.indexOf(b.name)
           if (ia !== -1 && ib !== -1) return ia - ib
