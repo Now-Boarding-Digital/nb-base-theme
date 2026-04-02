@@ -1,0 +1,35 @@
+{
+  "$schema": "../component-api.schema.json",
+  "component": "Switch",
+  "componentFile": "src/components/Switch.tsx",
+  "propsInterfaceName": "SwitchProps",
+  "allowedPropNamePatterns": [
+    "^[a-z][a-zA-Z0-9]*$",
+    "^aria-[a-z]+$"
+  ],
+  "requiredProps": [
+    "checked",
+    "defaultChecked",
+    "disabled",
+    "className",
+    "aria-label",
+    "onCheckedChange"
+  ],
+  "reservedBooleanProps": [
+    "checked",
+    "defaultChecked",
+    "disabled"
+  ],
+  "requiredCompatibilitySnippets": [
+    "onCheckedChange?: (checked: boolean) => void",
+    "'aria-label'?: string",
+    "'aria-label': ariaLabel = 'Toggle'"
+  ],
+  "deprecatedProps": {},
+  "forbiddenPropNames": [
+    "isOn",
+    "onToggle",
+    "switchState",
+    "label"
+  ]
+}

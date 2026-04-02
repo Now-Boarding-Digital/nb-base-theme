@@ -19,6 +19,8 @@ If visual output differs per client, check steps 1-3 before editing component co
 - Figma -> canonical: `app/src/foundations/variableManifest.ts`
 - Canonical -> component roles: `app/src/index.css`
 - Role usage in code: `app/src/components/*.tsx`
+- Property contract checks: `app/src/foundations/contracts/components/*.contract.json`
+- Contract naming + governance: `app/src/foundations/COMPONENT_CONTRACTS.md`
 
 ## Component role token groups
 
@@ -45,4 +47,6 @@ Do not patch per-client colors directly in component TSX.
 - This validates both:
   - no CSS fallback vars in TS/TSX (`check-token-fallbacks.mjs`)
   - no non-role color/shadow/opacity tokens in component modules (`check-component-role-tokens.mjs`)
+  - component contract requirements + forbidden visual utility patterns (`check-component-contracts.mjs`)
+  - component API naming/compatibility contracts (`check-component-api-contracts.mjs`)
 - Document any canonical tokens without direct Figma mapping in `TOKEN_SOURCE_EXCEPTIONS.md`.

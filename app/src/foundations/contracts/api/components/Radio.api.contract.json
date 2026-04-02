@@ -1,0 +1,38 @@
+{
+  "$schema": "../component-api.schema.json",
+  "component": "Radio",
+  "componentFile": "src/components/Radio.tsx",
+  "propsInterfaceName": "RadioProps",
+  "allowedPropNamePatterns": [
+    "^[a-z][a-zA-Z0-9]*$",
+    "^aria-[a-z]+$"
+  ],
+  "requiredProps": [
+    "checked",
+    "defaultChecked",
+    "disabled",
+    "name",
+    "value",
+    "size",
+    "state",
+    "className",
+    "aria-label",
+    "onChange"
+  ],
+  "reservedBooleanProps": [
+    "checked",
+    "defaultChecked",
+    "disabled"
+  ],
+  "requiredCompatibilitySnippets": [
+    "readOnly={checked !== undefined && !onChange}",
+    "onChange={(event) => onChange?.(event.target.checked)}"
+  ],
+  "deprecatedProps": {},
+  "forbiddenPropNames": [
+    "selected",
+    "onSelect",
+    "radioState",
+    "label"
+  ]
+}

@@ -5,7 +5,7 @@ const componentsDir = path.resolve('src/components')
 const tokenPattern = /var\(--((?:color|shadow|opacity)-[a-z0-9-]+)\)/g
 
 const rolePrefixesByFile = {
-  'Button.tsx': ['color-button-', 'shadow-button-'],
+  'Button.tsx': ['color-button-', 'shadow-button-', 'opacity-button-'],
   'Link.tsx': ['color-link-'],
   'IconButton.tsx': ['color-icon-button-'],
   'StackedButton.tsx': ['color-stacked-'],

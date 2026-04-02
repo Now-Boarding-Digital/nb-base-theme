@@ -1,0 +1,38 @@
+{
+  "$schema": "../component-api.schema.json",
+  "component": "Button",
+  "componentFile": "src/components/Button.tsx",
+  "propsInterfaceName": "ButtonProps",
+  "allowedPropNamePatterns": [
+    "^[a-z][a-zA-Z0-9]*$",
+    "^aria-[a-z]+$"
+  ],
+  "requiredProps": [
+    "children",
+    "labelText",
+    "style",
+    "size",
+    "icon",
+    "state",
+    "loading",
+    "disabled",
+    "className",
+    "onClick"
+  ],
+  "reservedBooleanProps": [
+    "loading",
+    "disabled"
+  ],
+  "requiredCompatibilitySnippets": [
+    "children ?? labelText ?? label"
+  ],
+  "deprecatedProps": {
+    "label": "Deprecated compatibility alias; prefer labelText."
+  },
+  "forbiddenPropNames": [
+    "isLoading",
+    "isDisabled",
+    "typeVariant",
+    "buttonStyle"
+  ]
+}

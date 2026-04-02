@@ -1,0 +1,67 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Component API Contract",
+  "type": "object",
+  "required": [
+    "component",
+    "componentFile",
+    "propsInterfaceName",
+    "allowedPropNamePatterns",
+    "requiredProps",
+    "reservedBooleanProps",
+    "requiredCompatibilitySnippets",
+    "deprecatedProps",
+    "forbiddenPropNames"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "component": {
+      "type": "string"
+    },
+    "componentFile": {
+      "type": "string"
+    },
+    "propsInterfaceName": {
+      "type": "string"
+    },
+    "allowedPropNamePatterns": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "requiredProps": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "reservedBooleanProps": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "requiredCompatibilitySnippets": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "deprecatedProps": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "forbiddenPropNames": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,47 @@
+{
+  "$schema": "../component-contract.schema.json",
+  "component": "Button",
+  "componentFile": "src/components/Button.tsx",
+  "allowedRoleTokenPatterns": [
+    "^--(?:color|shadow|opacity|radius|text|space|size|width|offset|motion)-button-[a-z0-9-]+$",
+    "^--font-weight-button$"
+  ],
+  "requiredSemanticRoleTokens": [
+    "--color-button-bg",
+    "--color-button-text",
+    "--color-button-border",
+    "--color-button-hover-bg",
+    "--color-button-hover-border",
+    "--shadow-button-hover",
+    "--color-button-focus-ring",
+    "--opacity-button-disabled",
+    "--width-button-border",
+    "--width-button-focus-ring",
+    "--offset-button-focus-ring",
+    "--motion-button-duration",
+    "--size-button-spinner",
+    "--width-button-spinner-stroke"
+  ],
+  "requiredBehaviorSnippets": [
+    "const isNonInteractive = resolvedState === 'disabled' || resolvedState === 'loading'",
+    "const isNativeDisabled = resolvedState === 'disabled'",
+    "const isVisuallyDisabled = resolvedState === 'disabled'",
+    "isVisuallyDisabled && 'opacity-[var(--opacity-button-disabled)] cursor-not-allowed'",
+    "disabled={isNativeDisabled}",
+    "aria-disabled={isLoading ? true : undefined}",
+    "onClick={isNonInteractive ? undefined : onClick}"
+  ],
+  "forbiddenSnippets": [
+    "isDisabled && 'opacity-50",
+    "const isDisabled = resolvedState === 'disabled' || resolvedState === 'loading'",
+    "disabled={isNonInteractive}"
+  ],
+  "forbiddenUtilityRegex": [
+    "\\bopacity-\\d+\\b",
+    "\\b(?:py|px|pl|pr|gap)-\\d+\\b",
+    "\\b(?:w|h)-\\d+(?:\\.\\d+)?\\b",
+    "\\btext-(?:xs|sm|base|lg|xl)\\b",
+    "\\bleading-\\d+\\b",
+    "\\bduration-\\d+\\b"
+  ]
+}

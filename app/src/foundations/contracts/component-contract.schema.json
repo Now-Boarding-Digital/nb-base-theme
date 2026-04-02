@@ -1,0 +1,58 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Component Contract",
+  "type": "object",
+  "required": [
+    "component",
+    "componentFile",
+    "allowedRoleTokenPatterns",
+    "requiredSemanticRoleTokens",
+    "requiredBehaviorSnippets",
+    "forbiddenSnippets",
+    "forbiddenUtilityRegex"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "component": {
+      "type": "string"
+    },
+    "componentFile": {
+      "type": "string"
+    },
+    "allowedRoleTokenPatterns": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "description": "Regular expression string used to validate role-token naming."
+      }
+    },
+    "requiredSemanticRoleTokens": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^--[a-z0-9-]+$"
+      }
+    },
+    "requiredBehaviorSnippets": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "forbiddenSnippets": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "forbiddenUtilityRegex": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}
