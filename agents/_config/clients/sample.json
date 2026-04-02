@@ -1,0 +1,17 @@
+{
+  "$schema": "../client.schema.json",
+  "id": "sample",
+  "displayName": "Sample client",
+  "role": "sample",
+  "figma": {
+    "fileKey": "h7IRa1i2N5ucusuhqIhCTJ",
+    "fileUrl": "https://www.figma.com/design/h7IRa1i2N5ucusuhqIhCTJ/",
+    "fileLabel": "Illustrative design file — replace for production clients",
+    "nodes": {
+      "buttonsFrame": "138:3677",
+      "theme": null,
+      "variables": null
+    }
+  },
+  "notes": "Boilerplate profile for a single-client checkout. Replace figma.* when pointing at your file; add agents/_operations/client-quirks/{id}.md as needed. Use FIGMA_CLIENT when multiple clients exist."
+}

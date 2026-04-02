@@ -9,3 +9,9 @@ body {
 #storybook-root {
   width: 100%;
 }
+
+/* Docs table: hide Controls column for cleaner library docs */
+.sbdocs .docblock-argstable table thead tr > th:last-child,
+.sbdocs .docblock-argstable table tbody tr > td:last-child {
+  display: none;
+}

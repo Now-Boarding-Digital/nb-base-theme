@@ -6,7 +6,7 @@
 
 | File | Client |
 |------|--------|
-| [`clients/now-boarding.json`](clients/now-boarding.json) | **Now Boarding** — design partner / boilerplate (Now Boarding Design System Kit) |
+| [`clients/sample.json`](clients/sample.json) | **Sample** — boilerplate client profile (replace `figma.*` for real engagements) |
 
 ## Overrides (optional)
 
@@ -14,13 +14,13 @@ Environment variables may override the JSON for CI or one-off runs (not required
 
 | Variable | Effect |
 |----------|--------|
-| `FIGMA_CLIENT` | If set to a client `id` (e.g. `now-boarding`), sync should load `clients/{id}.json`. |
+| `FIGMA_CLIENT` | If set to a client `id` (e.g. `acme`), sync should load `clients/{id}.json`. Default id when unset: **`sample`**. |
 | `FIGMA_FILE_KEY` | Overrides `figma.fileKey` when set. |
-| `FIGMA_NODE_BUTTONS` | Overrides `figma.nodes.buttonsFrame` when set (use `138:3677` colon form). |
+| `FIGMA_NODE_BUTTONS` | Overrides `figma.nodes.buttonsFrame` when set (use `123:456` colon form). |
 
 ## Adding a client
 
-1. Copy `clients/now-boarding.json` → `clients/{your-client-id}.json` and edit `id`, `displayName`, `figma`, `notes`.
+1. Copy `clients/sample.json` → `clients/{your-client-id}.json` and edit `id`, `displayName`, `figma`, `notes`.
 2. Optionally add [`../_operations/client-quirks/{your-client-id}.md`](../_operations/client-quirks/) for prose (exceptions, contacts).
 3. Point **`FIGMA_CLIENT`** at the new `id` or document the default in [`../figma-sync/.agent.md`](../figma-sync/.agent.md).
 

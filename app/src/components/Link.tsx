@@ -1,5 +1,5 @@
 /**
- * Link - from Now Boarding Design System Kit (Links section)
+ * Text link control (design-system)
  * Text links with Size (Large/Medium/Small), Icon (None/Left/Right), Bold (On/Off)
  */
 export type LinkSize = 'large' | 'medium' | 'small';
@@ -37,13 +37,13 @@ export function Link({
   onClick,
 }: LinkProps) {
   const baseClasses = [
-    'inline-flex items-center gap-1 text-[var(--color-text-link)] no-underline cursor-pointer transition-colors duration-150',
+    'inline-flex items-center gap-1 text-[var(--color-link-text)] no-underline cursor-pointer transition-colors duration-150',
     sizeClasses[size],
     bold ? 'font-bold' : 'font-normal',
     disabled && 'opacity-50 cursor-not-allowed',
   ].filter(Boolean).join(' ')
 
-  const hoverClasses = !disabled ? 'hover:text-[var(--color-ui-action)] hover:underline' : ''
+  const hoverClasses = !disabled ? 'hover:text-[var(--color-link-hover-text)] hover:underline' : ''
 
   const content = (
     <>

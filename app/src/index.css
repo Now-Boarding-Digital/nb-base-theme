@@ -3,10 +3,209 @@
 /* Design tokens - Now Boarding Design System Kit */
 @theme {
   --color-ui-action: #006fff;
+  --color-action-light: #3d91ff;
   /* Kept for non–Figma-solid patterns; solid hover uses --shadow-button + same fill per kit */
   --color-ui-action-hover: #0052cc;
   --color-text-link: #0c65d9;
+  --color-text-primary: #020617;
+  --color-text-secondary: #475569;
+  --color-text-hint-label: #94a3b8;
+  --color-text-reversed: #ffffff;
   --color-neutral-white: #ffffff;
+  --color-background-default: #ffffff;
+  --color-background-reversed: #020617;
+  --color-ui-card: #ffffff;
+  --color-controls-field: #ffffff;
+  --color-controls-field-stroke-active: #006fff;
+  --color-controls-dark-tint: #334155;
+  /* TextField semantic contract tokens (client-remapped roles). */
+  --color-field-border-default: var(--color-neutral-gray-200);
+  --color-field-border-hover: var(--color-neutral-gray-300);
+  --color-field-border-active: var(--color-controls-field-stroke-active);
+  --color-field-border-error: var(--color-semantic-red-default);
+  --color-field-bg: var(--color-controls-field);
+  --color-field-label-resting: var(--color-text-hint-label);
+  --color-field-label-floating: var(--color-text-secondary);
+  --color-field-text-default: var(--color-text-primary);
+  --color-field-text-active: var(--color-controls-field-stroke-active);
+  --color-field-text-error: var(--color-semantic-red-default);
+  --color-field-helper-default: var(--color-text-secondary);
+  --color-field-helper-error: var(--color-semantic-red-default);
+  --color-field-leading-icon: var(--color-ui-hint-icon);
+  --color-field-action-icon: var(--color-text-primary);
+  /* Button role tokens. */
+  --color-button-solid-bg: var(--color-ui-action);
+  --color-button-solid-text: var(--color-neutral-white);
+  --color-button-solid-border: var(--color-ui-action);
+  --shadow-button-solid-hover: var(--shadow-button);
+  --color-button-white-bg: var(--color-neutral-white);
+  --color-button-white-text: var(--color-text-link);
+  --color-button-white-hover-bg: var(--color-control-hover);
+  --color-button-outline-text: var(--color-ui-action);
+  --color-button-outline-border: var(--color-ui-action);
+  --color-button-outline-hover-bg: var(--color-action-tint);
+  --color-button-bg: var(--color-button-solid-bg);
+  --color-button-text: var(--color-button-solid-text);
+  --color-button-border: var(--color-button-solid-border);
+  --color-button-hover-bg: var(--color-button-solid-bg);
+  --color-button-hover-border: var(--color-button-solid-border);
+  --shadow-button-hover: var(--shadow-button-solid-hover);
+  --color-button-focus-ring: var(--color-focus-ring);
+  --opacity-button-disabled: var(--opacity-disabled);
+  --radius-button-large: var(--radius-control-large);
+  --radius-button-medium: var(--radius-control-medium);
+  --radius-button-small: var(--radius-control-small);
+  --font-weight-button: var(--font-weight-bold);
+  --text-button-font-size-large: 16px;
+  --text-button-line-height-large: 24px;
+  --text-button-font-size-medium: 14px;
+  --text-button-line-height-medium: 20px;
+  --text-button-font-size-small: 12px;
+  --text-button-line-height-small: 16px;
+  --space-button-py-large: 16px;
+  --space-button-py-medium: 10px;
+  --space-button-py-small: 8px;
+  --space-button-px-large-none: 32px;
+  --space-button-pl-large-left: 24px;
+  --space-button-pr-large-left: 32px;
+  --space-button-pl-large-right: 32px;
+  --space-button-pr-large-right: 24px;
+  --space-button-px-medium-none: 24px;
+  --space-button-pl-medium-left: 16px;
+  --space-button-pr-medium-left: 24px;
+  --space-button-pl-medium-right: 24px;
+  --space-button-pr-medium-right: 16px;
+  --space-button-px-small-none: 12px;
+  --space-button-pl-small-left: 12px;
+  --space-button-pr-small-left: 16px;
+  --space-button-pl-small-right: 16px;
+  --space-button-pr-small-right: 12px;
+  --space-button-gap-large: 8px;
+  --space-button-gap-medium: 8px;
+  --space-button-gap-small: 6px;
+  --size-button-icon-large: 20px;
+  --size-button-icon-medium: 20px;
+  --size-button-icon-small: 14px;
+  --size-button-spinner: 16px;
+  --radius-button-spinner: 9999px;
+  --width-button-spinner-stroke: 2px;
+  --width-button-border: 1px;
+  --width-button-focus-ring: 2px;
+  --offset-button-focus-ring: 4px;
+  --motion-button-duration: 150ms;
+  /* Link role tokens. */
+  --color-link-text: var(--color-text-link);
+  --color-link-hover-text: var(--color-ui-action);
+  /* IconButton role tokens. */
+  --color-icon-button-solid-bg: var(--color-ui-action);
+  --color-icon-button-solid-text: var(--color-neutral-white);
+  --color-icon-button-solid-border: var(--color-ui-action);
+  --color-icon-button-solid-hover-bg: var(--color-ui-action-hover);
+  --color-icon-button-solid-hover-border: var(--color-ui-action-hover);
+  --color-icon-button-outline-text: var(--color-ui-action);
+  --color-icon-button-outline-border: var(--color-ui-action);
+  --color-icon-button-outline-hover-bg: var(--color-action-tint);
+  --color-icon-button-transparent-text: var(--color-ui-action);
+  --color-icon-button-transparent-hover-bg: var(--color-action-tint);
+  --color-icon-button-white-bg: var(--color-neutral-white);
+  --color-icon-button-white-text: var(--color-ui-action);
+  --color-icon-button-white-border: var(--color-neutral-white);
+  --color-icon-button-white-hover-bg: var(--color-control-hover);
+  --color-icon-button-white-hover-border: var(--color-control-hover);
+  --color-icon-button-bg: var(--color-icon-button-solid-bg);
+  --color-icon-button-text: var(--color-icon-button-solid-text);
+  --color-icon-button-border: var(--color-icon-button-solid-border);
+  --color-icon-button-hover-bg: var(--color-icon-button-solid-hover-bg);
+  --color-icon-button-hover-border: var(--color-icon-button-solid-hover-border);
+  /* StackedButton role tokens. */
+  --color-stacked-solid-bg: var(--color-ui-action);
+  --color-stacked-solid-text: var(--color-neutral-white);
+  --color-stacked-solid-border: var(--color-ui-action);
+  --color-stacked-solid-hover-bg: var(--color-ui-action-hover);
+  --color-stacked-solid-hover-border: var(--color-ui-action-hover);
+  /* StackedButton generic property slots consumed by component code. */
+  --color-stacked-bg: var(--color-stacked-solid-bg);
+  --color-stacked-text: var(--color-stacked-solid-text);
+  --color-stacked-border: var(--color-stacked-solid-border);
+  --color-stacked-hover-bg: var(--color-stacked-solid-hover-bg);
+  --color-stacked-hover-border: var(--color-stacked-solid-hover-border);
+  --color-stacked-outline-text: var(--color-neutral-gray-700);
+  --color-stacked-outline-border: var(--color-neutral-gray-300);
+  --color-stacked-outline-hover-bg: var(--color-neutral-gray-100);
+  --color-stacked-outline-hover-border: var(--color-neutral-gray-400);
+  --color-stacked-grey-bg: var(--color-neutral-gray-100);
+  --color-stacked-grey-text: var(--color-neutral-gray-700);
+  --color-stacked-grey-border: var(--color-neutral-gray-100);
+  --color-stacked-grey-hover-bg: var(--color-neutral-gray-200);
+  --color-stacked-grey-hover-border: var(--color-neutral-gray-200);
+  --color-stacked-transparent-text: var(--color-ui-action);
+  --color-stacked-transparent-hover-bg: var(--color-action-tint);
+  --color-stacked-white-bg: var(--color-neutral-white);
+  --color-stacked-white-text: var(--color-text-link);
+  --color-stacked-white-border: var(--color-neutral-white);
+  --color-stacked-white-hover-bg: var(--color-control-hover);
+  --color-stacked-white-hover-border: var(--color-control-hover);
+  /* LoginButton role tokens. */
+  --color-login-google-bg: var(--color-neutral-white);
+  --color-login-google-text: var(--color-neutral-gray-700);
+  --color-login-google-border: var(--color-neutral-gray-300);
+  --color-login-google-hover-bg: var(--color-neutral-gray-50);
+  --color-login-google-hover-border: var(--color-neutral-gray-400);
+  --color-login-apple-bg: var(--color-neutral-gray-800);
+  --color-login-apple-text: var(--color-neutral-white);
+  --color-login-apple-border: var(--color-neutral-gray-800);
+  --color-login-apple-hover-bg: var(--color-neutral-gray-700);
+  --color-login-apple-hover-border: var(--color-neutral-gray-700);
+  --color-login-facebook-bg: var(--color-neutral-gray-800);
+  --color-login-facebook-text: var(--color-neutral-white);
+  --color-login-facebook-border: var(--color-neutral-gray-800);
+  --color-login-facebook-hover-bg: var(--color-neutral-gray-700);
+  --color-login-facebook-hover-border: var(--color-neutral-gray-700);
+  --color-login-default-bg: var(--color-ui-action);
+  --color-login-default-text: var(--color-neutral-white);
+  --color-login-default-border: var(--color-ui-action);
+  --color-login-default-hover-bg: var(--color-ui-action-hover);
+  --color-login-default-hover-border: var(--color-ui-action-hover);
+  --color-login-bg: var(--color-login-default-bg);
+  --color-login-text: var(--color-login-default-text);
+  --color-login-border: var(--color-login-default-border);
+  --color-login-hover-bg: var(--color-login-default-hover-bg);
+  --color-login-hover-border: var(--color-login-default-hover-border);
+  /* Dropdown role tokens. */
+  --color-dropdown-trigger-bg: var(--color-neutral-white);
+  --color-dropdown-trigger-text: var(--color-neutral-gray-700);
+  --color-dropdown-trigger-border: var(--color-neutral-gray-300);
+  --color-dropdown-trigger-hover-bg: var(--color-neutral-gray-50);
+  --color-dropdown-trigger-hover-border: var(--color-neutral-gray-400);
+  --color-dropdown-trigger-open-bg: var(--color-neutral-gray-100);
+  --color-dropdown-trigger-open-border: var(--color-ui-action);
+  --color-dropdown-trigger-focus-outline: var(--color-action-outline);
+  --color-dropdown-content-bg: var(--color-neutral-white);
+  --color-dropdown-content-border: var(--color-neutral-gray-300);
+  --color-dropdown-item-text: var(--color-neutral-gray-700);
+  --color-dropdown-item-hover-bg: var(--color-neutral-gray-100);
+  --color-dropdown-item-hover-text: var(--color-neutral-gray-700);
+  --color-dropdown-item-focus-bg: var(--color-action-tint);
+  --color-dropdown-item-focus-text: var(--color-ui-action);
+  /* Switch role tokens. */
+  --color-switch-track-bg-off: var(--color-controls-dark-tint);
+  --color-switch-track-bg-on: var(--color-ui-action);
+  --color-switch-thumb-bg: var(--color-neutral-white);
+  --color-switch-border: transparent;
+  --color-switch-focus-ring: var(--color-action-outline);
+  --opacity-switch-disabled: var(--opacity-disabled);
+  /* Radio role tokens. */
+  --color-radio-ring-unselected: var(--color-controls-dark-tint);
+  --color-radio-ring-selected: var(--color-ui-action);
+  --color-radio-dot: var(--color-ui-action);
+  --color-radio-hover-bg: var(--color-ui-action);
+  --color-radio-focus-ring: var(--color-action-outline);
+  --opacity-radio-hover: var(--opacity-hover);
+  --opacity-radio-disabled: var(--opacity-disabled);
+  --color-ui-hint-icon: #6e7f97;
+  --color-semantic-purple-default: #8e51ff;
+  --color-semantic-red-default: #fb2c36;
+  --color-social-facebook: #1877f2;
   --color-neutral-gray-50: #f9fafb;
   --color-neutral-gray-100: #f3f4f6;
   --color-neutral-gray-200: #e5e7eb;
@@ -14,6 +213,7 @@
   --color-neutral-gray-400: #9ca3af;
   --color-neutral-gray-700: #374151;
   --color-neutral-gray-800: #1f2937;
+  --color-control-hover: #f1f5f9;
   --color-action-tint: rgba(0, 111, 255, 0.08);
   --color-action-outline: rgba(0, 111, 255, 0.2);
   /* Focus ring (Buttons “Focussed” in Figma — text/primary stroke) */
@@ -22,11 +222,29 @@
   --radius-control-medium: 8px;
   /* Figma: Radius/Control Small → 4 */
   --radius-control-small: 4px;
+  --radius-field: 8px;
+  --radius-dropdown: 8px;
+  --radius-icon-buttons: 100px;
+  --opacity-disabled: 0.5;
+  --opacity-hover: 0.06;
+  --opacity-active: 0.12;
   /* Figma: Shadows/Button — solid hover / pressed */
   --shadow-button:
     0 2px 4px -2px rgba(0, 0, 0, 0.06),
     0 4px 8px -2px rgba(0, 0, 0, 0.1);
+  --shadow-dropdown-button: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-dropdown:
+    0 4px 6px -2px rgba(0, 0, 0, 0.03),
+    0 12px 16px -4px rgba(0, 0, 0, 0.08);
   --font-primary: 'Inter', system-ui, sans-serif;
+  --font-weight-default: 400;
+  --font-weight-bold: 700;
+  --text-content-base: 400 16px / 24px var(--font-primary);
+  --text-content-base-bold: 700 16px / 24px var(--font-primary);
+  --text-content-small: 400 14px / 20px var(--font-primary);
+  --text-content-small-bold: 700 14px / 20px var(--font-primary);
+  --text-content-xsmall: 400 12px / 16px var(--font-primary);
+  --text-content-xsmall-bold: 700 12px / 16px var(--font-primary);
   --animate-btn-spin: btn-spin 0.6s linear infinite;
 
   @keyframes btn-spin {

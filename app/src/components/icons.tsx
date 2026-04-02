@@ -1,13 +1,13 @@
 /**
- * Shared icons for Now Boarding Design System
+ * Shared icons for design-system components
  */
 
 export type IconSize = 'large' | 'medium' | 'small'
 
-export const PlusIcon = ({ size = 'large' }: { size?: IconSize }) => {
+export const PlusIcon = ({ size = 'large', className }: { size?: IconSize; className?: string }) => {
   const sizeClasses = { large: 'w-4 h-4', medium: 'w-3.5 h-3.5', small: 'w-3 h-3' }
   return (
-    <svg className={`shrink-0 ${sizeClasses[size]}`} viewBox="0 0 16 16" fill="none" aria-hidden>
+    <svg className={`shrink-0 ${className ?? sizeClasses[size]}`} viewBox="0 0 16 16" fill="none" aria-hidden>
       <path d="M8 3v10M3 8h10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   )

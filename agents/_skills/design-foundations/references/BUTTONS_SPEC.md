@@ -1,6 +1,8 @@
-# Buttons specification — Now Boarding Design System Kit
+# Buttons specification (cross-target)
 
 **Location:** `agents/_skills/design-foundations/references/` — cross-target **control** reference (sizes, styles, states). Stack implementation (React + Tailwind) should align via `**design-react-tailwind`** and `**agents/figma-sync**` **Active target**.
+
+**Values** (px, hex, radii) are **illustrative** unless they match your client’s Figma variables and tokens; treat the **matrix shape** (families, axes, states) as the stable contract. Per-client numbers live in Figma → synced CSS/tokens under the active target.
 
 Canonical reference for all button-related components, their sizes, styles, states, and variations.
 
@@ -9,6 +11,38 @@ Canonical reference for all button-related components, their sizes, styles, stat
 ## 1. Buttons (Primary action buttons)
 
 Text + optional icon. Rectangular with rounded corners.
+
+### Variant property model (authoring + Storybook)
+
+Buttons are a **single component family** controlled by properties, not separate components per visual combination.
+
+#### Core properties
+
+| Property | Values | Notes |
+|----------|--------|-------|
+| `size` | `large`, `medium`, `small` | Controls height, padding, radius, and typography scale |
+| `style` | `solid`, `white`, `outline` | Visual treatment |
+| `icon` | `none`, `left`, `right` | Icon placement relative to label |
+| `state` | `default`, `hover`, `disabled`, `loading` | Interaction/state representation |
+| `labelText` | string | Text content shown in the button |
+
+#### Variable modes
+
+Buttons should support the active variable mode (theme), e.g. `auto(light/dark)` where available.
+Tokens and colors must resolve from the active mode rather than hardcoded values.
+
+#### Composition rule
+
+A rendered button is the combination:
+`button(size, style, icon, state, labelText, themeMode)`
+
+All documented examples should be representable through this property model.
+
+#### Storybook coverage
+
+Keep focused stories for each main axis (`Styles`, `Sizes`, `Icon`, `State`) and include one extra `All Combinations` story as a visual safety net to catch missing style/color/state combinations across the full variant matrix.
+
+Required state coverage for review snapshots: `default`, `hover`, `disabled`, `loading` (and document `pressed`/`focused` from Figma when not implemented in API yet).
 
 ### Sizes
 
@@ -85,6 +119,12 @@ Inline text links. No background by default.
 | Hover    | Underline, darker blue  |
 | Disabled | 50% opacity, no pointer |
 
+### Storybook coverage
+
+Keep focused stories for each axis (`Sizes`, `Icon`, `Weight`, `State`) and include one extra `All Combinations` story as a visual safety net to catch missing size/icon/weight/state combinations.
+
+Required state coverage for review snapshots: `default`, `hover`, `disabled`.
+
 
 ---
 
@@ -127,6 +167,12 @@ Circular buttons with a plus (+) icon in the center. All variations use the same
 
 *Figma has Active (pressed) — not yet implemented.*
 
+### Storybook coverage
+
+Keep focused stories for each axis (`Styles`, `Sizes`, `State`) and include one extra `All Combinations` story as a visual safety net to catch missing style/size/state combinations.
+
+Required state coverage for review snapshots: `default`, `hover`, `disabled` (document `active` where present in Figma until implemented).
+
 ---
 
 ## 4. Stacked Buttons (Full-width vertical)
@@ -160,6 +206,12 @@ Full-width buttons for vertical layouts (e.g. mobile, forms).
 | Hover    | Darker / tinted background |
 | Disabled | 50% opacity                |
 
+### Storybook coverage
+
+Keep focused stories for each axis (`Styles`, `State`) and include one extra `All Combinations` story as a visual safety net to catch missing style/state combinations.
+
+Required state coverage for review snapshots: `default`, `hover`, `disabled`.
+
 
 ---
 
@@ -192,6 +244,12 @@ Wide buttons for authentication flows.
 | Default  | Resting                    |
 | Hover    | Slightly darker background |
 | Disabled | 50% opacity                |
+
+### Storybook coverage
+
+Keep focused stories for each axis (`Provider`, `State`) and include one extra `All Combinations` story as a visual safety net to catch missing provider/state combinations.
+
+Required state coverage for review snapshots: `default`, `hover`, `disabled`.
 
 
 ---
@@ -228,6 +286,12 @@ Buttons that open dropdowns. Label + chevron.
 | Filled   | Grey background, blue border  |
 | Open     | Chevron rotated, blue border  |
 | Disabled | 50% opacity                   |
+
+### Storybook coverage
+
+Keep focused stories for each axis (`Sizes`, `Variant`, `State`) and include one extra `All Combinations` story as a visual safety net to catch missing size/variant/state combinations.
+
+Required state coverage for review snapshots: `default`, `hover`, `filled`, `open`, `disabled`.
 
 
 ---

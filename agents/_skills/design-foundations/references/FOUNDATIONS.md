@@ -8,6 +8,10 @@ Principles that apply **regardless of Storybook renderer** (React, Vue, Web Comp
 
 - Prefer **semantic** design tokens (colors, radii, spacing) over raw values.
 - Components should reference the project’s token system; do not hardcode one-off hex or px when a token exists.
+- Treat token setup as a **first-class foundation task** for each new client/project before component generation begins.
+- Keep token usage **DRY**: one canonical token definition, many component references (`var(--token)`), never duplicated raw values per component.
+- Maintain a stable mapping path: **Figma variable name/path -> repo token name -> component usage**.
+- Brand-specific labels in Figma (e.g. "Primary Colour") should be mapped once to semantic token names used across components.
 
 ## Component model
 

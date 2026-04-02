@@ -1,0 +1,43 @@
+{
+  "$schema": "../component-api.schema.json",
+  "component": "TextField",
+  "componentFile": "src/components/TextField.tsx",
+  "propsInterfaceName": "TextFieldProps",
+  "allowedPropNamePatterns": [
+    "^[a-z][a-zA-Z0-9]*$",
+    "^aria-[a-z]+$"
+  ],
+  "requiredProps": [
+    "size",
+    "state",
+    "label",
+    "type",
+    "prefixText",
+    "placeholder",
+    "value",
+    "defaultValue",
+    "disabled",
+    "errorText",
+    "showLeadingIcon",
+    "showAction",
+    "className",
+    "onValueChange"
+  ],
+  "reservedBooleanProps": [
+    "disabled",
+    "showLeadingIcon",
+    "showAction"
+  ],
+  "requiredCompatibilitySnippets": [
+    "const currentValue = value ?? internalValue",
+    "if (value === undefined) setInternalValue(event.target.value)",
+    "onValueChange?.(event.target.value)"
+  ],
+  "deprecatedProps": {},
+  "forbiddenPropNames": [
+    "textFieldType",
+    "isDisabled",
+    "onChangeValue",
+    "leadingIcon"
+  ]
+}

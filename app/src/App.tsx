@@ -39,7 +39,7 @@ function App() {
   return (
     <main className="p-8 max-w-[900px] mx-auto">
       <h1 className="text-3xl font-bold leading-tight">Components</h1>
-      <p className="text-[#666] mb-8">Now Boarding Design System Kit — Buttons page</p>
+      <p className="text-[#666] mb-8">Design system — Buttons preview</p>
 
       <DemoSection
         title="1. Buttons"
